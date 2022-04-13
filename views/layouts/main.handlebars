@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where to Stream</title>
+    <!---<link rel="stylesheet" href="../../public/css/style.css">--->
+</head>
+
+<body>
+    <header>
+        <h1>
+            Where to Stream
+        </h1>
+        {{>nav}}
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+
+    <!-- Only include the logout script if the user is logged in -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    <script src="/js/userhome.js"></script>
+    {{else}}
+    <script src="/js/login.js"></script>
+    <script src="/js/signup.js"></script>
+    {{/if}}
+</body>
+
+</html>
