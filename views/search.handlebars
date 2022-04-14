@@ -1,0 +1,39 @@
+{{#if logged_in}}
+<div id="searchheader">
+    <h2>Search for a Movie or a TV Show to see all Streaming Options!</h2>
+    <h3>Please Refresh Page before Searching for New TV Show or Movie</h3>
+</div>
+
+<form id="form">
+        <input id="userinput" type="text" autofocus="true" />
+        <label for="movie">
+            <input type="checkbox" id="moviecheck" name="movie" value="yes">    Movie
+         </label>
+        <label for="tvshow">
+            <input type="checkbox" id="tvcheck" name="tvshow" value="yes">  TV Show
+         </label><br>
+    </form><br>
+    <div id="errormessage"></div>
+    <button id="searchbutton" type="submit">Search</button>
+    <section id="resultsbox">
+    <div id="imagebox"></div>
+    <button id="titlebutton" style="display:none"></button>
+    <div id="suboptions">
+        <h4 id="subheading"></h4>
+        <h4 id="suberror"></h4>
+    </div>
+    <div id="rentoptions">
+        <h4 id="rentheading"></h4>
+        <h4 id="renterror"></h4>
+    </div>
+    <div id="buyoptions">
+        <h4 id="buyheading"></h4>
+        <h4 id="buyerror"></h4>
+    </div>
+    </section>
+
+    <footer> 
+        <button id="clearbutton" type="submit">Clear Results</button>
+    </footer>
+    <script src="/js/search.js"></script>
+    {{/if}}

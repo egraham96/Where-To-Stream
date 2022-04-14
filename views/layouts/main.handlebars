@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where to Stream</title>
-    <!---<link rel="stylesheet" href="../../public/css/style.css">--->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -21,6 +21,7 @@
 
     <!-- Only include the logout script if the user is logged in -->
     {{#if logged_in}}
+    <script src="/js/search.js"></script>
     <script src="/js/logout.js"></script>
     <script src="/js/userhome.js"></script>
     {{else}}
