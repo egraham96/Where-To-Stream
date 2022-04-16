@@ -1,32 +1,32 @@
 const User = require('./User');
-//const Movie = require('./Movie');
-//const StreamingService = require('./StreamingService');
-//const MovieList = require('./MovieList');
-//const MovieStreamer = require ('./MovieStreamer');
-
-// Movie.belongsTo(MovieList, {
-//   foreignKey: 'movie_id', 
-//   constraints: false
-// })
-
-// MovieList.hasMany(Movie, {
-//   foreignKey: 'movie_id',
-//   constraints: false
-// })
-
-//Movie.belongsToMany(User, { through: MovieList});
-//User.belongsToMany(Movie, {through:MovieList});
-
-//Movie.belongsToMany(StreamingService, {through: MovieStreamer});
-//StreamingService.belongsToMany(Movie, {through: MovieStreamer});
+const Media = require('./Media');
+const StreamingList = require('./StreamingList');
+const MediaList = require('./MediaList');
 
 
-// MovieList.hasMany(Movie);
-// // Movie.belongsTo(MovieList, {
-// //   foreignKey: 'movie_id',
-// //   constraints: false
-// // });
+Media.belongsTo(MediaList, {
+foreignKey: 'media_id', 
+constraints: false
+})
+
+MediaList.hasMany(Media, {
+foreignKey: 'media_id',
+constraints: false
+})
+
+Media.belongsToMany(User, { through: MediaList});
+User.belongsToMany(Media, {through: MediaList});
+
+Media.belongsTo(StreamingList, {
+    foreignKey: 'media_id', 
+    constraints: false
+    })
+
+StreamingList.hasOne(Media, {
+    foreignKey: 'media_id',
+    constraints: false
+    })
 
 
 
-module.exports = { User, /*Movie, StreamingService, MovieList, MovieStreamer*/ };
+module.exports = { User, Media, StreamingList, MediaList }

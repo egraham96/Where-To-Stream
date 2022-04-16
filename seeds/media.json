@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Good Will Hunting", 
+    "type": "movie",
+    "image": "https://image.tmdb.org/t/p/w200/bABCBKYBK7A5G1x0FzoeoNfuj2.jpg",
+    "average_rating": "8.1"
+  },
+  {
+    "title":"The Matrix",
+    "type": "movie",
+    "image":"https://image.tmdb.org/t/p/w200/8c4a8kE7PizaGQQnditMmI1xbRp.jpg", 
+    "average_rating":"6.8"
+  },
+  {
+    "title":"Lord of the Rings",
+    "type": "movie",
+    "image":"https://image.tmdb.org/t/p/w200/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg", 
+    "average_rating":"8.4"
+  },
+  {
+    "title":"Iron Man",
+    "type": "movie",
+    "image":"https://image.tmdb.org/t/p/w200/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
+    "average_rating":"7.6"
+  },
+  {
+    "title":"Titanic",
+    "type": "movie",
+    "image": "https://image.tmdb.org/t/p/w200/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg",
+    "average_rating":"7.9"
+  },
+  {
+    "title":"Fargo",
+    "type": "movie",
+    "image": "https://image.tmdb.org/t/p/w200/rt7cpEr1uP6RTZykBFhBTcRaKvG.jpg",
+    "average_rating":"7.9"
+  },
+  {
+    "title":"The Notebook",
+    "type": "movie",
+    "image": "https://image.tmdb.org/t/p/w200/rNzQyW4f8B8cQeg7Dgj3n6eT5k9.jpg",
+    "average_rating":"7.9"
+  },
+  {
+    "title":"Breaking Bad",
+    "type": "tv",
+    "image": "https://image.tmdb.org/t/p/w200/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+    "average_rating":"8.8"
+  },
+  {
+    "title":"The Sopranos",
+    "type": "tv",
+    "image": "https://image.tmdb.org/t/p/w200/57okJJUBK0AaijxLh3RjNUaMvFI.jpg",
+    "average_rating":"8.5"
+  },
+  {
+    "title":"Modern Family",
+    "type": "tv",
+    "image": "https://image.tmdb.org/t/p/w200/fu5vEUHgxkAPmX26ISQXqHmlPMq.jpg",
+    "average_rating":"7.7"
+  },
+  {
+    "title":"Spongebob",
+    "type": "tv",
+    "image": "https://image.tmdb.org/t/p/w200/amvtZgiTty0GHIgD56gpouBWrcy.jpg",
+    "average_rating":"7.6"
+  }
+]

@@ -1,0 +1,27 @@
+[
+    {
+      "media_id": 1,
+      "type": "subscription",
+      "link": "https://ondemand.spectrum.net/movies/20224/good-will-hunting/"
+    },
+    {
+        "media_id": 1,
+        "type": "subscription",
+        "link": "https://play.hbomax.com/feature/urn:hbo:feature:GXoTA1gtnCyWbjQEAAACl"
+    },
+    {
+        "media_id": 1,
+        "type": "subscription",
+        "link": "https://link.fubo.tv/al1%3Fv%3D1%26a%3Dplay%26t%3Dprogram%26pid%3DMV000536670000%26o%3D0&irmp=1993008&irad=599309"
+    },
+    {
+        "media_id": 1,
+        "type": "rental",
+        "link": "https://www.amazon.com/gp/video/detail/amzn1.dv.gti.38a9f7bd-05de-ddd8-4286-3f7544d2a799?"
+    },
+    {
+        "media_id": 1,
+        "type": "rental",
+        "link": "https://www.vudu.com/content/movies/details/content/13550"
+    }
+  ]

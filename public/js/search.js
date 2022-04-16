@@ -1,3 +1,4 @@
+
 const clearbutton = document.getElementById("clearbutton");
 const movie = document.getElementById("moviecheck")
 const tvshow = document.getElementById("tvcheck")
@@ -5,8 +6,10 @@ const errormessage = document.getElementById("errormessage");
 const searchbutton = document.getElementById("searchbutton");
 const resultsbox = document.getElementById("resultsbox");
 const imagebox = document.getElementById("imagebox")
-const titlebutton = document.getElementById("titlebutton")
-const suboptions = document.getElementById("suboptions");
+const rating= document.getElementById("rating")
+const addbutton = document.getElementById("addbutton")
+const streambutton=document.getElementById("streambutton")
+/*const suboptions = document.getElementById("suboptions");
 const subheading = document.getElementById("subheading");
 const suberror = document.getElementById("suberror");
 const rentoptions = document.getElementById("rentoptions");
@@ -14,8 +17,10 @@ const rentheading = document.getElementById("rentheading");
 const renterror = document.getElementById("renterror");
 const buyoptions = document.getElementById("buyoptions");
 const buyheading = document.getElementById("buyheading");
-const buyerror = document.getElementById("buyerror");
+const buyerror = document.getElementById("buyerror");*/
+let tvorMovie=""
 let imagelink = ""
+let ratingnum= ""
 
 
 
@@ -35,10 +40,10 @@ function getIds(query, type) {
         .then(response => response.json())
         .then((data) => {
             if (data.title_results.length != 0) {
-                let watchmodeId = data.title_results[0].id;
+                //let watchmodeId = data.title_results[0].id;
                 let imdbId = data.title_results[0].imdb_id;
-                getStreaminginfo(watchmodeId, query, type)
-                getpicture(imdbId, type)
+                getStreamingInfo(watchmodeId, query, type)
+                getPicRating(imdbId, type)
                     /*If Watchmode does not have the query title (and thus its ID) in its database, that means it does not have any streaming options. This throws an error telling user to pick a different movie or show*/
                     /*You can test this by inputting a movie or show that does not exist*/
             } else throw Error('No movie found by that name');
@@ -50,7 +55,7 @@ function getIds(query, type) {
 }
 
 //Returns all streaming data from Watchmode API for inputted movie or tv show (if found on Watchmode in getIds function)
-function getStreaminginfo(watchmodeId, query, type) {
+function getStreamingInfo(watchmodeId, query, type) {
     fetch("https://watchmode.p.rapidapi.com/title/" + watchmodeId + "/sources/", {
             "method": "GET",
             "headers": {
@@ -61,29 +66,32 @@ function getStreaminginfo(watchmodeId, query, type) {
         })
         .then(response => response.json())
         .then((data) => {
-            /*Checks to make sure the Watchmode API has any streaming options available for the chosen movie in its database*/
-            /*For example, Watchmode has the movie Neo Ned in its database, has an ID for it, but has no streaming links for it available (no subscription, rental or buying options)*/
+            //Checks to make sure the Watchmode API has any streaming options available for the chosen movie in its database
+            //For example, Watchmode has the movie Neo Ned in its database, has an ID for it, but has no streaming links for it available (no subscription, rental or buying options)
             if (data.length != 0) {
-                titlebutton.removeAttribute("style", "display:none")
-                titlebutton.textContent = query
-                rendersubdata(data, query, type)
-                renderrentdata(data, query, type)
-                renderbuydata(data, query, type)
+                addbutton.removeAttribute("style", "display:none")
+                //renderSubData(data, query, type)
+                //renderRentData(data, query, type)
+                //renderBuyData(data, query, type)
             } else { errormessage.textContent = "No Streaming Options Found! Please try searching for a different movie or TV show." }
         })
         .catch(err => {
             console.error(err);
         });
 }
-//Returns links to subscription streaming services where inputted movie or tv show can be watched (if found)
-function rendersubdata(data, query, type) {
+
+//let subServiceList = [];
+
+
+/*Returns links to subscription streaming services where inputted movie or tv show can be watched (if found)
+function renderSubData(data, query, type) {
     var subscriptionoptions = data
         .filter(option => {
             if (option.region == "US" && option.type == "sub" && option.web_url != undefined) { return true; }
         })
     console.log(subscriptionoptions)
-        /*Checks to make sure the Watchmode API has any SUBSCRIPTION streaming options available for the chosen movie in its database*/
-        /*For example, Watchmode has the movie SpiceGirls in its database, has an ID for it, you can buy or rent movie, but no subscription streaming links available*/
+        //Checks to make sure the Watchmode API has any SUBSCRIPTION streaming options available for the chosen movie in its database//
+        //For example, Watchmode has the movie SpiceGirls in its database, has an ID for it, you can buy or rent movie, but no subscription streaming links available//
     if (subscriptionoptions.length != 0) {
         if (subscriptionoptions.length < 10) {
             subscriptionoptions.forEach(value => {
@@ -95,6 +103,11 @@ function rendersubdata(data, query, type) {
                 link.appendChild(hyperlink)
                 list.appendChild(link)
                 suboptions.appendChild(list);
+                const obj={
+                    type: "subscription",
+                    link: value.web_url
+                }
+                subServiceList.push(obj)
                 subheading.textContent = `${query} is available on these subscription streaming services: `
             })
         }
@@ -109,16 +122,21 @@ function rendersubdata(data, query, type) {
                 link.appendChild(hyperlink)
                 list.appendChild(link)
                 suboptions.appendChild(list);
+                const obj={
+                    type: "subscription",
+                    link: value.web_url
+                }
+                subServiceList.push(obj)
                 subheading.textContent = `${query} is available on these subscription streaming services: `
             });
         }
     } else {
         suberror.textContent = `${query} is unavailable on any subscription streaming services at this time.`
     }
-}
+}*/
 
-//Returns links to websites where inputted movie or tv show can be rented & streamed (if found)
-function renderrentdata(data, query, type) {
+/*Returns links to websites where inputted movie or tv show can be rented & streamed (if found)
+function renderRentData(data, query, type) {
     var rentaloptions = data
         .filter(option => {
             if (option.region == "US" && option.type == "rent" && option.web_url != undefined) { return true; }
@@ -137,6 +155,11 @@ function renderrentdata(data, query, type) {
                 link2.appendChild(hyperlink2)
                 list2.appendChild(link2)
                 rentoptions.appendChild(list2);
+                const obj={
+                    type: "rental",
+                    link: value.web_url
+                }
+                subServiceList.push(obj)
                 rentheading.textContent = `${query} can be rented and streamed here: `
             })
         }
@@ -151,16 +174,21 @@ function renderrentdata(data, query, type) {
                 link2.appendChild(hyperlink2)
                 list2.appendChild(link2)
                 rentoptions.appendChild(list2);
+                const obj={
+                    type: "rental",
+                    link: value.web_url
+                }
+                subServiceList.push(obj)
                 rentheading.textContent = `${query} can be rented and streamed here: `
             });
         }
     } else {
         renterror.textContent = `${query} is unavailable on any rental streaming services at this time.`
     }
-}
+}*/
 
-//Returns links to websites where inputted movie or tv show can be purchased & streamed (if found)
-function renderbuydata(data, query, type) {
+/*Returns links to websites where inputted movie or tv show can be purchased & streamed (if found)
+function renderBuyData(data, query, type) {
     var buyingoptions = data
         .filter(option => {
             if (option.region == "US" && option.type == "buy" && option.web_url != undefined) { return true; }
@@ -179,6 +207,11 @@ function renderbuydata(data, query, type) {
                 link3.appendChild(hyperlink3)
                 list3.appendChild(link3)
                 buyoptions.appendChild(list3);
+                const obj={
+                    type: "purchase",
+                    link: value.web_url
+                }
+                subServiceList.push(obj)
                 buyheading.textContent = `${query} can be purchased and streamed here: `
             })
         }
@@ -193,24 +226,29 @@ function renderbuydata(data, query, type) {
                 link3.appendChild(hyperlink3)
                 list3.appendChild(link3)
                 buyoptions.appendChild(list3);
+                const obj={
+                    type: "purchase",
+                    link: value.web_url
+                }
+                subServiceList.push(obj)
                 buyheading.textContent = `${query} can be purchased and streamed here: `
             });
         }
     } else {
         buyerror.textContent = `${query} is unavailable to be purchased and streamed at this time.`
     }
-}
+}*/
 
 
 //Takes imdbId and media type from getIds function and uses TMDB API to find one picture of selected movie or tv show
-function getpicture(imdbId, type) {
+function getPicRating(imdbId, type) {
     apikey2 = "a5c09845f2af6ed970ae332ca8d551ec"
     fetch(
             `https://api.themoviedb.org/3/find/${imdbId}?api_key=${apikey2}&language=en-US&external_source=imdb_id`)
         .then(response => response.json())
         .then((data) => {
             console.log(data)
-            printpic(data, type)
+            printPicRating(data, type)
         })
         .catch(err => {
             console.error(err);
@@ -218,47 +256,56 @@ function getpicture(imdbId, type) {
 
 }
 
-//If found, appends the one pic from inputted movie or tv show to page
-function printpic(data, type) {
+//If found, appends the one pic from inputted movie or tv show to page,  as well as its average rating
+function printPicRating(data, type) {
     var pic = document.createElement("img");
     if (type === "movie") {
         let path = data.movie_results[0].poster_path;
         imagelink = "https://image.tmdb.org/t/p/w200" + path;
         pic.src = imagelink;
         imagebox.appendChild(pic)
-        return imagelink;
+        ratingnum= data.movie_results[0].vote_average
+        rating.textContent=`Average User Rating: ${data.movie_results[0].vote_average}/10`
+        return imagelink, ratingnum
     } else {
         let path = data.tv_results[0].poster_path;
         imagelink = "https://image.tmdb.org/t/p/w200" + path;
         pic.src = imagelink;
         imagebox.appendChild(pic)
-        return imagelink;
+        ratingnum=data.tv_results[0].vote_average
+        rating.textContent=`Average User Rating: ${data.tv_results[0].vote_average}/10`
+        return imagelink, ratingnum
     }
 }
 
 //Allows users to add a title they searched for to their Watchlist
-const addtoMovies = async(event) => {
-    let title = event.target.textContent;
+const addtoWatchlist = async(event) => {
+    event.preventDefault()
+    let title = document.getElementById('userinput').value
+    let type= tvorMovie
     let image_link = imagelink;
+    let rating= ratingnum;
 
     const response = await fetch('/api/mylist', {
         method: 'POST',
-        body: JSON.stringify({ title, image_link }),
+        body: JSON.stringify({ title, type, image_link, rating, /*subServiceList*/ }),
         headers: { 'Content-Type': 'application/json' }
     });
-    if (response.ok) {
-        document.location.replace('/api/mylist')
+    if (response.status=200) {
+        console.log("success")
+        document.location.replace('api/mylist')
     } else {
         alert(`response not ok ${response.statusText}`)
     }
 };
 
 
-//Grabs the query and media type submitted by the user and gives it to getIds function. 
-searchbutton.addEventListener('click', function(event) {
+//Grabs the query and media type submitted by the user via search button and gives it to getIds function. 
+searchbutton.addEventListener('click', Init) 
+
+function Init(event){
     event.preventDefault();
     errormessage.textContent = "";
-    let tvorMovie;
     let userinput = document.getElementById('userinput').value
     if (movie.checked) {
         tvorMovie = "movie";
@@ -270,13 +317,19 @@ searchbutton.addEventListener('click', function(event) {
         return;
     }
     getIds(userinput, tvorMovie)
-})
+}
 
 //Allows users to add a query they searched for to their Watchlist, provided results were found for query
-titlebutton.addEventListener("click", addtoMovies)
+addbutton.addEventListener("click", addtoWatchlist)
+
+console.log(subServiceList)
+
 
 //Clears results and data from previous search
-clearbutton.addEventListener('click', function() {
+clearbutton.addEventListener('click', Clear)
+
+
+function Clear() {
     document.getElementById('userinput').value = ""
     tvshow.checked = false;
     movie.checked = false;
@@ -285,5 +338,4 @@ clearbutton.addEventListener('click', function() {
     console.clear()
     location.reload();
 
-
-})
+}

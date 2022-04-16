@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, /*StreamingService, Movie*/ } = require('../models');
+const { User, MediaList, Media /*StreamingService*/ } = require('../models');
 const withAuth = require('../utils/auth');
 //const path = require('path');
 //const { where } = require('sequelize/types');
