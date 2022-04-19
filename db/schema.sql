@@ -1,5 +1,5 @@
 -- DROP DATABASE
-DROP DATABASE IF EXISTS streaming_db;
+DROP DATABASE IF EXISTS wheretostream_db;
 
 -- CREATE DATABASE
-CREATE DATABASE streaming_db;
+CREATE DATABASE wheretostream_db;

@@ -1,12 +1,12 @@
-<!-- Only display the user homepage and logout buttons in the nav bar if the user is logged in -->
+<!-- Only display the user watchlist and logout buttons in the nav bar if the user is logged in -->
         {{#if logged_in}}
         <nav>
-            <button id="homepage">My Homepage</button>
-            <button id="logout">Logout</button>
+            <button type="submit" id="watchlist"></a>My Watchlist</button>
+            <button type="submit" id="logout">Logout</button>
         </nav>
         {{else}}
         <nav>
-           <button id="loginbutton">Login</button>
-           <button id="signupbutton">Sign Up</button>
+           <button type="submit" id="loginbutton">Login</button>
+           <button type= "submit" id="signupbutton">Sign Up</button>
         </nav>
         {{/if}}

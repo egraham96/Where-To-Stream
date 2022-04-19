@@ -14,7 +14,7 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-  //seed the movie table
+  //seed the media table
   const medias = await Media.bulkCreate(mediaData, {
     individualHooks: true, 
     returning: true,
@@ -24,7 +24,7 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-  //seed the movie list table to assingn movies to users
+  //seed the media list table to assign media to users
   const medialists = await MediaList.bulkCreate(mediaListData, {
     individualHooks: true,
     returning: true,

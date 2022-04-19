@@ -1,53 +1,43 @@
   [
     {
       "media_id": 1,
-      "media_type": "movie",
       "user_id": 6
     },
     {
       "media_id": 3,
-      "media_type": "movie",
-      "user_id": 2
+      "user_id": 1
     },
     {
       "media_id": 7,
-      "media_type": "movie",
       "user_id": 6
     },
     {
       "media_id": 3,
-      "media_type": "movie",
       "user_id": 3
     },
     {
       "media_id": 4,
-      "media_type": "movie",
       "user_id": 3
     },
     {
       "media_id": 5,
-      "media_type": "movie",
       "user_id": 1
     },
-    
+  
     {
       "media_id": 8,
-      "media_type": "tv",
-      "user_id": 8
+      "user_id": 1
     },
     {
       "media_id": 9,
-      "media_type": "tv",
       "user_id": 6
     },
     {
       "media_id": 10,
-      "media_type": "tv",
       "user_id": 8
     },
     {
       "media_id": 11,
-      "media_type": "tv",
-      "user_id": 8
+      "user_id": 1
     }
   ]

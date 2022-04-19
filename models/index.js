@@ -4,28 +4,48 @@ const StreamingList = require('./StreamingList');
 const MediaList = require('./MediaList');
 
 
-Media.belongsTo(MediaList, {
-foreignKey: 'media_id', 
-constraints: false
-})
-
-MediaList.hasMany(Media, {
-foreignKey: 'media_id',
-constraints: false
-})
-
-Media.belongsToMany(User, { through: MediaList});
-User.belongsToMany(Media, {through: MediaList});
-
-Media.belongsTo(StreamingList, {
-    foreignKey: 'media_id', 
-    constraints: false
-    })
-
 StreamingList.hasOne(Media, {
     foreignKey: 'media_id',
     constraints: false
-    })
+})
+
+Media.belongsTo(StreamingList, {
+    foreignKey: 'media_id',
+    constraints: false
+})
+
+Media.belongsToMany(User, {
+        through: MediaList,
+        unique:false,
+        foreignKey: 'media_id'
+});
+
+
+User.belongsToMany(Media, {
+    through: MediaList,
+    unique:false,
+    foreignKey: 'user_id'
+});
+
+MediaList.hasMany(Media, {
+    foreignKey: 'media_id',
+    constraints: false
+})
+
+Media.belongsTo(MediaList, {
+    foreignKey: 'media_id',
+    constraints: false
+})
+
+User.belongsTo(MediaList, {
+    foreignKey:'user_id',
+    constraints:false
+})
+
+MediaList.hasMany(User, {
+    foreignKey: 'user_id',
+    constraints:false
+})
 
 
 

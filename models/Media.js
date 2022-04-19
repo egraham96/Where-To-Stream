@@ -29,6 +29,10 @@ Media.init(
         allowNull: true,
         defaultValue: 0
       },
+    watchmode_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
   },
   {
     sequelize,

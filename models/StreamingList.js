@@ -9,6 +9,7 @@ StreamingList.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
+            primaryKey:true,
         },
         media_id: {
             type: DataTypes.INTEGER,

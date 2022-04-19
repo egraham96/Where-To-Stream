@@ -1,0 +1,26 @@
+<div class="section">
+        <div class="columns is-size-5">Hello&nbsp;<div>{{user.user_name}}</div>!
+    </div>
+
+    <!--Main-->
+    <div class="section">
+
+    <!--My List-->
+    <div>
+        My Media: 
+    </div>
+
+      <div>
+{{#each medias as |media|}}
+        <div>
+          <article>
+            <p class="title">{{media.title}}</p>
+            <p class="type">{{media.type}}</p>
+                <img src="{{media.image}}">
+                <p class="rating">{{media.average_rating}}</p>
+           
+          </article>
+        </div>
+{{/each}}
+</div>
+<a href="/">Go back</a>

@@ -1,60 +1,4 @@
-
-const clearbutton = document.getElementById("clearbutton");
-const movie = document.getElementById("moviecheck")
-const tvshow = document.getElementById("tvcheck")
-const errormessage = document.getElementById("errormessage");
-const searchbutton = document.getElementById("searchbutton");
-const resultsbox = document.getElementById("resultsbox");
-const imagebox = document.getElementById("imagebox")
-const rating= document.getElementById("rating")
-const addbutton = document.getElementById("addbutton")
-const streambutton=document.getElementById("streambutton")
-/*const suboptions = document.getElementById("suboptions");
-const subheading = document.getElementById("subheading");
-const suberror = document.getElementById("suberror");
-const rentoptions = document.getElementById("rentoptions");
-const rentheading = document.getElementById("rentheading");
-const renterror = document.getElementById("renterror");
-const buyoptions = document.getElementById("buyoptions");
-const buyheading = document.getElementById("buyheading");
-const buyerror = document.getElementById("buyerror");*/
-let tvorMovie=""
-let imagelink = ""
-let ratingnum= ""
-let watchmodeId=""
-
-
-
-
-//Takes query and media type submitted by user and returns Watchmode API id & IMDB id for query (if found)
-function getIds(query, type) {
-    fetch(
-            `https://watchmode.p.rapidapi.com/search/?search_field=name&search_value=${query}&types=${type}`, {
-                method: "GET",
-                headers: {
-                    "x-rapidapi-key": "be9a60e677msh27b9eb97af299e8p1c5a0djsnb9ba03ed5bd6",
-                    "x-rapidapi-host": "watchmode.p.rapidapi.com",
-                },
-            }
-        )
-        .then(response => response.json())
-        .then((data) => {
-            if (data.title_results.length != 0) {
-                watchmodeId = data.title_results[0].id;
-                let imdbId = data.title_results[0].imdb_id;
-                getStreamingInfo(watchmodeId, query, type)
-                getPicRating(imdbId, type)
-                    /*If Watchmode does not have the query title (and thus its ID) in its database, that means it does not have any streaming options. This throws an error telling user to pick a different movie or show*/
-                    /*You can test this by inputting a movie or show that does not exist*/
-            } else throw Error('No movie found by that name');
-        })
-        .catch((err) => {
-            console.error(err);
-            errormessage.textContent = "No results found by that name. Please try searching for a different movie or TV show. Also, please be sure to check the correct box."
-        });
-}
-
-//Returns all streaming data from Watchmode API for inputted movie or tv show (if found on Watchmode in getIds function)
+/*Returns all streaming data from Watchmode API for inputted movie or tv show (if found on Watchmode in getIds function)
 function getStreamingInfo(watchmodeId, query, type) {
     fetch("https://watchmode.p.rapidapi.com/title/" + watchmodeId + "/sources/", {
             "method": "GET",
@@ -77,11 +21,10 @@ function getStreamingInfo(watchmodeId, query, type) {
         })
         .catch(err => {
             console.error(err);
-        }); 
-        return watchmodeId;
+        });
 }
 
-//let subServiceList = [];
+//let subServiceList = []; */
 
 
 /*Returns links to subscription streaming services where inputted movie or tv show can be watched (if found)
@@ -241,7 +184,7 @@ function renderBuyData(data, query, type) {
 }*/
 
 
-//Takes imdbId and media type from getIds function and uses TMDB API to find one picture of selected movie or tv show
+/*Takes imdbId and media type from getIds function and uses TMDB API to find one picture of selected movie or tv show
 function getPicRating(imdbId, type) {
     apikey2 = "a5c09845f2af6ed970ae332ca8d551ec"
     fetch(
@@ -280,8 +223,9 @@ function printPicRating(data, type) {
         rating.textContent=`Average User Rating: ${data.tv_results[0].vote_average}/10`
         return imagelink, ratingnum
     }
-}
+}*/
 
+/*
 //Allows users to add a title they searched for to their Watchlist
 const addtoWatchlist = async(event) => {
     event.preventDefault()
@@ -289,11 +233,10 @@ const addtoWatchlist = async(event) => {
     let type= tvorMovie
     let image_link = imagelink;
     let rating= ratingnum;
-    let watchmodeiden=watchmodeId
 
     const response = await fetch('/api/mylist', {
         method: 'POST',
-        body: JSON.stringify({ title, type, image_link, rating, watchmodeiden }),
+        body: JSON.stringify({ title, type, image_link, rating, subServiceList }),
         headers: { 'Content-Type': 'application/json' }
     });
     if (response.status=200) {
@@ -302,7 +245,7 @@ const addtoWatchlist = async(event) => {
     } else {
         alert(`response not ok ${response.statusText}`)
     }
-};
+};*/
 
 
 //Grabs the query and media type submitted by the user via search button and gives it to getIds function. 
@@ -325,16 +268,16 @@ function Search(event){
 }
 
 //Allows users to add a query they searched for to their Watchlist, provided results were found for query
-addbutton.addEventListener("click", addtoWatchlist)
+//addbutton.addEventListener("click", addtoWatchlist)
 
 //console.log(subServiceList)
 
 
 //Clears results and data from previous search
-clearbutton.addEventListener('click', Clear)
+//clearbutton.addEventListener('click', Clear)
 
 
-function Clear() {
+/*function Clear() {
     document.getElementById('userinput').value = ""
     tvshow.checked = false;
     movie.checked = false;
@@ -343,4 +286,4 @@ function Clear() {
     console.clear()
     location.reload();
 
-}
+}*/

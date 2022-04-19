@@ -1,68 +1,79 @@
 [
-  {
+  {"id":1,
     "title": "Good Will Hunting", 
     "type": "movie",
     "image": "https://image.tmdb.org/t/p/w200/bABCBKYBK7A5G1x0FzoeoNfuj2.jpg",
-    "average_rating": "8.1"
+    "average_rating": "8.1",
+    "watchmode_id": 1151385
   },
-  {
+  { "id":2,
     "title":"The Matrix",
     "type": "movie",
     "image":"https://image.tmdb.org/t/p/w200/8c4a8kE7PizaGQQnditMmI1xbRp.jpg", 
-    "average_rating":"6.8"
+    "average_rating":"6.8",
+    "watchmode_id": 1586886
   },
-  {
+  { "id":3,
     "title":"Lord of the Rings",
     "type": "movie",
     "image":"https://image.tmdb.org/t/p/w200/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg", 
-    "average_rating":"8.4"
+    "average_rating":"8.4",
+    "watchmode_id": 1404362
   },
-  {
+  { "id":4,
     "title":"Iron Man",
     "type": "movie",
     "image":"https://image.tmdb.org/t/p/w200/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
-    "average_rating":"7.6"
+    "average_rating":"7.6",
+    "watchmode_id": 1186054
   },
-  {
+  {"id":5,
     "title":"Titanic",
     "type": "movie",
     "image": "https://image.tmdb.org/t/p/w200/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg",
-    "average_rating":"7.9"
+    "average_rating":"7.9",
+    "watchmode_id": 1434738
   },
-  {
+  {"id":6,
     "title":"Fargo",
     "type": "movie",
     "image": "https://image.tmdb.org/t/p/w200/rt7cpEr1uP6RTZykBFhBTcRaKvG.jpg",
-    "average_rating":"7.9"
+    "average_rating":"7.9",
+    "watchmode_id": 1130264
   },
-  {
+  { "id": 7,
     "title":"The Notebook",
     "type": "movie",
     "image": "https://image.tmdb.org/t/p/w200/rNzQyW4f8B8cQeg7Dgj3n6eT5k9.jpg",
-    "average_rating":"7.9"
+    "average_rating":"7.9",
+    "watchmode_id": 1409931
   },
-  {
+  { "id":8,
     "title":"Breaking Bad",
     "type": "tv",
     "image": "https://image.tmdb.org/t/p/w200/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
-    "average_rating":"8.8"
+    "average_rating":"8.8",
+    "watchmode_id": 3173903
   },
-  {
+  { "id":9,
     "title":"The Sopranos",
     "type": "tv",
     "image": "https://image.tmdb.org/t/p/w200/57okJJUBK0AaijxLh3RjNUaMvFI.jpg",
-    "average_rating":"8.5"
+    "average_rating":"8.5",
+    "watchmode_id":3129354
   },
-  {
+  { "id":10,
     "title":"Modern Family",
     "type": "tv",
     "image": "https://image.tmdb.org/t/p/w200/fu5vEUHgxkAPmX26ISQXqHmlPMq.jpg",
-    "average_rating":"7.7"
+    "average_rating":"7.7",
+    "watchmode_id":379569
   },
-  {
+  { "id":11,
     "title":"Spongebob",
     "type": "tv",
     "image": "https://image.tmdb.org/t/p/w200/amvtZgiTty0GHIgD56gpouBWrcy.jpg",
-    "average_rating":"7.6"
+    "average_rating":"7.6",
+    "watchmode_id":3110688
   }
 ]
