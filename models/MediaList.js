@@ -10,6 +10,7 @@ MediaList.init(
       //allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      onDelete: 'cascade'
     },
     media_id: {
       primaryKey:false,
@@ -18,6 +19,7 @@ MediaList.init(
         model: 'media',
         key: 'id',
       },
+      onDelete: 'cascade'
     },
     user_id: {
       primaryKey:false,
@@ -26,6 +28,7 @@ MediaList.init(
         model: 'user',
         key: 'id',
       },
+      onDelete: 'cascade'
     },
   },
   {

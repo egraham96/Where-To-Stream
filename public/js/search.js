@@ -3,6 +3,7 @@ const clearbutton = document.getElementById("clearbutton");
 const movie = document.getElementById("moviecheck")
 const tvshow = document.getElementById("tvcheck")
 const errormessage = document.getElementById("errormessage");
+const search=document.getElementById("search")
 const searchbutton = document.getElementById("searchbutton");
 const resultsbox = document.getElementById("resultsbox");
 const imagebox = document.getElementById("imagebox")
@@ -307,6 +308,7 @@ const addtoWatchlist = async(event) => {
 
 //Grabs the query and media type submitted by the user via search button and gives it to getIds function. 
 searchbutton.addEventListener('click', Search) 
+
 
 function Search(event){
     event.preventDefault();

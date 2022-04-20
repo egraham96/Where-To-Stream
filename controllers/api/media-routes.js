@@ -8,7 +8,7 @@ const {
 const withAuth = require('../../utils/auth');
 
 
-//Add media to user watchlist
+//Render a user's entire watchlist
 router.get('/', withAuth, async (req, res) => {
   console.log(`in media routes get / user id ${req.session.user_id}`);
   
@@ -35,7 +35,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 
-//Add a tv show or movie to watchlist
+//Add a tv show or movie to user's watchlist
 router.post('/', withAuth, async(req, res) => {
     console.log(`in media routes post / user id ${req.session.user_id} title ${req.body.title}`);
     try {
@@ -47,10 +47,10 @@ router.post('/', withAuth, async(req, res) => {
           watchmode_id: req.body.watchmodeiden
         });
 
-    //sanitize media data
+    //Sanitize media data
     const media = mediaData.get({ plain: true});
 
-    //add to user's watchlist
+    //Add to user's MediaList (Sequelize through table)
     const mediaListData = await MediaList.create({
         media_id: media.id, 
         user_id: req.session.user_id
@@ -69,6 +69,27 @@ router.post('/', withAuth, async(req, res) => {
       logged_in: req.session.logged_in,
       });
   })
+
+  //Delete a movie or tv show from user's watchlist
+  router.delete('/:id', withAuth, async(req, res) => {
+    console.log(`in media routes delete/ user id ${req.session.user_id}`);
+    console.log(req.params.id)
+      try {
+        const mediaData = await Media.destroy({
+          where: {
+            id: req.params.id,
+          },
+        });
+    
+        if (!mediaData) {
+          res.status(404).json({ message: 'No post found with this id!' });
+          return;
+        }
+        res.status(200).json(mediaData);
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    });
 
 
 module.exports = router;

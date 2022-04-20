@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async(req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/search');
+        res.redirect('/api/mylist');
     }
 
     res.render('login')

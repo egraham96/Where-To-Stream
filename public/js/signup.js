@@ -31,6 +31,3 @@ document.
 getElementById("signupsubmit").
 addEventListener('click', signupFormHandler);
 
-document.
-getElementById("signupbutton").
-addEventListener('click', signupFormHandler);

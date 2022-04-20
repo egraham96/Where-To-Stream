@@ -1,3 +1,4 @@
+
 const loginFormHandler = async(event) => {
     event.preventDefault()
 
@@ -24,6 +25,3 @@ document
     .getElementById("loginsubmit")
     .addEventListener('click', loginFormHandler);
 
-document
-    .getElementById("loginbutton")
-    .addEventListener('click', loginFormHandler);

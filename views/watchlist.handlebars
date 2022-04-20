@@ -13,14 +13,14 @@
       <div>
 {{#each medias as |media|}}
         <div>
-          <article>
-            <p class="title">{{media.title}}</p>
-            <p class="type">{{media.type}}</p>
+            <p id="title">{{media.title}}</p>
+            <p id="type">{{media.type}}</p>
                 <img src="{{media.image}}">
                 <p class="rating">{{media.average_rating}}</p>
-           
-          </article>
+                <a href="/"><button data-id="{{media.id}}" class="detailbutton">Get Details</button></a>
+                <button data-id="{{media.id}}" class="deletebutton">Delete</button>
         </div>
 {{/each}}
 </div>
-<a href="/">Go back</a>
+<a href="/"><button>Go Back</button></a>
+<script src="/js/watchlist.js"></script>
