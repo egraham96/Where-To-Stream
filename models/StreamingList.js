@@ -9,26 +9,31 @@ StreamingList.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
-            primaryKey:true,
+            primaryKey:true
         },
         media_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'media',
                 key: 'id',
-            }},
+            allowNull:false,
+            },
+        },
         type: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull:false
         },
         link: {
             type: DataTypes.STRING,
-            allowNull: true,
-            unique:true
+            allowNull: false,
+            unique:true,
+            
         }
     },
     {
         sequelize,
+        indexes:[{unique:true,
+        fields:['link']}],
         timestamps: false,
         freezeTableName: true,
         underscored: true,

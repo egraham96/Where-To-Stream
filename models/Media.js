@@ -33,6 +33,10 @@ Media.init(
         type: DataTypes.INTEGER,
         allowNull: false
       },
+      imdb_id: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
   },
   {
     sequelize,

@@ -10,15 +10,15 @@
         My Media: 
     </div>
 
-      <div>
+      <div id="mediacontainer">
 {{#each medias as |media|}}
         <div>
             <p id="title">{{media.title}}</p>
             <p id="type">{{media.type}}</p>
                 <img src="{{media.image}}">
                 <p class="rating">{{media.average_rating}}</p>
-                <a href="/"><button data-id="{{media.id}}" class="detailbutton">Get Details</button></a>
-                <button data-id="{{media.id}}" class="deletebutton">Delete</button>
+                <button data-id={{media.id}} data-type="{{media.type}}" class="detailbutton">Get Details</button>
+                <button data-id={{media.id}} class= "deletebutton">Delete</button>
         </div>
 {{/each}}
 </div>

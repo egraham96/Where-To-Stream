@@ -1,0 +1,23 @@
+<div class="section">
+        <div class="columns is-size-5">Hello&nbsp;<div>{{user.user_name}}</div>!
+    </div>
+
+    <!--Main-->
+    <div class="section">
+
+    <!--Media Chosen-->
+    <div>
+        Streaming Links for {{media.title}}
+         <img style="display:block;" src="{{media.image}}">
+         <p class="rating">{{media.average_rating}}</p>
+    </div>
+    <!--Streaming Links for Chosen Media-->
+      <div id="linkscontainer">
+          <ul id="list">
+{{#each links as |link|}}
+                <li><a href="{{link.link}}">{{link.link}}</a></li><br>
+{{/each}}
+</ul>
+</div>
+</div>
+<script src="/js/watchlist.js"></script>

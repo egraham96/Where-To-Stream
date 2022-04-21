@@ -1,7 +1,6 @@
 
 const loginFormHandler = async(event) => {
-    event.preventDefault()
-
+     event.preventDefault()
     const email = document.getElementById("email-login").value.trim();
     const password = document.getElementById("password-login").value.trim();
 

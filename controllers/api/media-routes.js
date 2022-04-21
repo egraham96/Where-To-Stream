@@ -1,10 +1,5 @@
 const router = require('express').Router();
-const {
-    User,
-    Media,
-    MediaList,
-    /*StreamingList*/
-} = require('../../models');
+const {User,Media,MediaList,/*StreamingList*/} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -34,45 +29,71 @@ router.get('/', withAuth, async (req, res) => {
 
 });
 
-
 //Add a tv show or movie to user's watchlist
 router.post('/', withAuth, async(req, res) => {
-    console.log(`in media routes post / user id ${req.session.user_id} title ${req.body.title}`);
-    try {
-        const mediaData = await Media.create({
-          title: req.body.title,
-          type: req.body.type,
-          image: req.body.image_link,
-          average_rating: req.body.rating,
-          watchmode_id: req.body.watchmodeiden
-        });
-
-    //Sanitize media data
-    const media = mediaData.get({ plain: true});
-
-    //Add to user's MediaList (Sequelize through table)
-    const mediaListData = await MediaList.create({
-        media_id: media.id, 
-        user_id: req.session.user_id
+  console.log(`in media routes post / user id ${req.session.user_id} title ${req.body.title}`);
+  try {
+      const mediaData = await Media.create({
+        title: req.body.title,
+        type: req.body.type,
+        image: req.body.image_link,
+        average_rating: req.body.rating,
+        watchmode_id: req.body.watchmode_id,
+        imdb_id: req.body.imdb_id
       });
-      req.session.save(() => {
-        req.session.user_id = mediaListData.user_id;
-        req.session.logged_in = true;
+
+  //Sanitize media data
+  const media = mediaData.get({ plain: true});
+
+  //Add to user's MediaList (Sequelize through table)
+  const mediaListData = await MediaList.create({
+      media_id: media.id, 
+      user_id: req.session.user_id
+    });
+    req.session.save(() => {
+      req.session.user_id = mediaListData.user_id;
+      req.session.logged_in = true;
+
+    });
+
+  } catch (err) {
+    res.status(400).json(err)
+  }
   
-      });
+  res.render('watchlist',{
+    logged_in: req.session.logged_in,
+    });
+})
+
+
+//Get info about one movie or tv show from user's watchlist
+router.get('/:id', withAuth, async (req, res) => {
+  console.log(`in media routes get :id / user id ${req.session.user_id}`);
   
-    } catch (err) {
-      res.status(400).json(err)
+  try {
+    const mediaData = await Media.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!mediaData) {
+      res.status(404).json({ message: 'No media found with this id!' });
+      return;
     }
-    
-    res.render('watchlist',{
-      logged_in: req.session.logged_in,
-      });
-  })
+
+    const serializedData=mediaData.get( {plain: true});
+    console.log(serializedData)
+    res.status(200).json(serializedData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
   //Delete a movie or tv show from user's watchlist
   router.delete('/:id', withAuth, async(req, res) => {
-    console.log(`in media routes delete/ user id ${req.session.user_id}`);
+    console.log(`in media routes delete :id/ user id ${req.session.user_id}`);
     console.log(req.params.id)
       try {
         const mediaData = await Media.destroy({

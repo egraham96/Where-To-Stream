@@ -9,7 +9,7 @@ router.get('/', async(req, res) => {
         res.redirect('/api/mylist');
     }
 
-    res.render('login')
+    res.redirect('/login')
 
 });
 

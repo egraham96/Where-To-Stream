@@ -6,6 +6,7 @@ const errormessage = document.getElementById("errormessage");
 const search=document.getElementById("search")
 const searchbutton = document.getElementById("searchbutton");
 const resultsbox = document.getElementById("resultsbox");
+const mediatitle=document.getElementById("mediatitle")
 const imagebox = document.getElementById("imagebox")
 const rating= document.getElementById("rating")
 const addbutton = document.getElementById("addbutton")
@@ -20,9 +21,11 @@ const buyoptions = document.getElementById("buyoptions");
 const buyheading = document.getElementById("buyheading");
 const buyerror = document.getElementById("buyerror");*/
 let tvorMovie=""
+let query=""
 let imagelink = ""
 let ratingnum= ""
 let watchmodeId=""
+let imdbId=""
 
 
 
@@ -42,9 +45,9 @@ function getIds(query, type) {
         .then((data) => {
             if (data.title_results.length != 0) {
                 watchmodeId = data.title_results[0].id;
-                let imdbId = data.title_results[0].imdb_id;
+                imdbId = data.title_results[0].imdb_id;
                 getStreamingInfo(watchmodeId, query, type)
-                getPicRating(imdbId, type)
+                getPicRating(query, imdbId, type)
                     /*If Watchmode does not have the query title (and thus its ID) in its database, that means it does not have any streaming options. This throws an error telling user to pick a different movie or show*/
                     /*You can test this by inputting a movie or show that does not exist*/
             } else throw Error('No movie found by that name');
@@ -71,6 +74,7 @@ function getStreamingInfo(watchmodeId, query, type) {
             //For example, Watchmode has the movie Neo Ned in its database, has an ID for it, but has no streaming links for it available (no subscription, rental or buying options)
             if (data.length != 0) {
                 addbutton.removeAttribute("style", "display:none")
+                return query, watchmodeId;
                 //renderSubData(data, query, type)
                 //renderRentData(data, query, type)
                 //renderBuyData(data, query, type)
@@ -79,10 +83,8 @@ function getStreamingInfo(watchmodeId, query, type) {
         .catch(err => {
             console.error(err);
         }); 
-        return watchmodeId;
 }
 
-//let subServiceList = [];
 
 
 /*Returns links to subscription streaming services where inputted movie or tv show can be watched (if found)
@@ -243,58 +245,62 @@ function renderBuyData(data, query, type) {
 
 
 //Takes imdbId and media type from getIds function and uses TMDB API to find one picture of selected movie or tv show
-function getPicRating(imdbId, type) {
+function getPicRating(query, imdbId, type) {
     apikey2 = "a5c09845f2af6ed970ae332ca8d551ec"
     fetch(
             `https://api.themoviedb.org/3/find/${imdbId}?api_key=${apikey2}&language=en-US&external_source=imdb_id`)
         .then(response => response.json())
         .then((data) => {
             console.log(data)
-            printPicRating(data, type)
+            printPicRating(query, data, type)
         })
         .catch(err => {
             console.error(err);
         });
-
+        return query, imdbId;
 }
 
 //If found, appends the one pic from inputted movie or tv show to page,  as well as its average rating
-function printPicRating(data, type) {
+function printPicRating(query, data, type) {
     tvshow.checked = false;
     movie.checked = false;
-    document.getElementById('userinput').value = ""
     var pic = document.createElement("img");
     if (type === "movie") {
         let path = data.movie_results[0].poster_path;
         imagelink = "https://image.tmdb.org/t/p/w200" + path;
         pic.src = imagelink;
+        mediatitle.textContent=query
         imagebox.appendChild(pic)
         ratingnum= data.movie_results[0].vote_average
         rating.textContent=`Average User Rating: ${data.movie_results[0].vote_average}/10`
-        return imagelink, ratingnum
+        document.getElementById('userinput').value = ""
+        return imagelink, ratingnum, query
     } else {
         let path = data.tv_results[0].poster_path;
         imagelink = "https://image.tmdb.org/t/p/w200" + path;
         pic.src = imagelink;
+        mediatitle.textContent=query
         imagebox.appendChild(pic)
         ratingnum=data.tv_results[0].vote_average
         rating.textContent=`Average User Rating: ${data.tv_results[0].vote_average}/10`
-        return imagelink, ratingnum
+        document.getElementById('userinput').value = ""
+        return imagelink, ratingnum, query
     }
 }
 
 //Allows users to add a title they searched for to their Watchlist
 const addtoWatchlist = async(event) => {
     event.preventDefault()
-    let title = document.getElementById('userinput').value
+    let title = mediatitle.textContent
     let type= tvorMovie
     let image_link = imagelink;
     let rating= ratingnum;
-    let watchmodeiden=watchmodeId
+    let watchmode_id=watchmodeId
+    let imdb_id=imdbId
 
     const response = await fetch('/api/mylist', {
         method: 'POST',
-        body: JSON.stringify({ title, type, image_link, rating, watchmodeiden }),
+        body: JSON.stringify({ title, type, image_link, rating, watchmode_id, imdb_id }),
         headers: { 'Content-Type': 'application/json' }
     });
     if (response.status=200) {
@@ -329,7 +335,7 @@ function Search(event){
 //Allows users to add a query they searched for to their Watchlist, provided results were found for query
 addbutton.addEventListener("click", addtoWatchlist)
 
-//console.log(subServiceList)
+
 
 
 //Clears results and data from previous search
