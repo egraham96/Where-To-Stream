@@ -55,4 +55,3 @@ Please see installation instructions above.
 
 ![Github licence](http://img.shields.io/badge/license-MIT-blue.svg)
 
-Copyright <2021><Emma Graham>
