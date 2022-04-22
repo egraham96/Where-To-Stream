@@ -22,6 +22,7 @@ Finally, to start the server enter "npm start" into your terminal.
 You're all set!
 
 ## Built With:
+<<<<<<< HEAD
 -JavaScript
 -Node.js
 -MySQL2
@@ -36,6 +37,22 @@ You're all set!
 -file-system
 -HTML
 -CSS
+=======
+JavaScript
+Node.js
+MySQL2
+MySQL Workbench
+Sequelize
+Connect Session Store using Sequelize
+Express.js
+express-session
+bcryps.js
+dotenv
+Handlebars
+file-system
+HTML
+CSS
+>>>>>>> 0a057009f4138d8182172e624c470d96fd0fe904
 
 
 ## Deployed Links:
