@@ -3,15 +3,13 @@ const clearbutton = document.getElementById("clearbutton");
 const movie = document.getElementById("moviecheck")
 const tvshow = document.getElementById("tvcheck")
 const errormessage = document.getElementById("errormessage");
-const search=document.getElementById("search")
 const searchbutton = document.getElementById("searchbutton");
 const resultsbox = document.getElementById("resultsbox");
 const mediatitle=document.getElementById("mediatitle")
 const imagebox = document.getElementById("imagebox")
 const rating= document.getElementById("rating")
-const addbutton = document.getElementById("addbutton")
-const streambutton=document.getElementById("streambutton")
-/*const suboptions = document.getElementById("suboptions");
+const addbutton=document.getElementById("addbutton")
+const suboptions = document.getElementById("suboptions");
 const subheading = document.getElementById("subheading");
 const suberror = document.getElementById("suberror");
 const rentoptions = document.getElementById("rentoptions");
@@ -19,7 +17,7 @@ const rentheading = document.getElementById("rentheading");
 const renterror = document.getElementById("renterror");
 const buyoptions = document.getElementById("buyoptions");
 const buyheading = document.getElementById("buyheading");
-const buyerror = document.getElementById("buyerror");*/
+const buyerror = document.getElementById("buyerror");
 let tvorMovie=""
 let query=""
 let imagelink = ""
@@ -31,7 +29,7 @@ let imdbId=""
 
 
 //Takes query and media type submitted by user and returns Watchmode API id & IMDB id for query (if found)
-function getIds(query, type) {
+function getIDs(query, type) {
     fetch(
             `https://watchmode.p.rapidapi.com/search/?search_field=name&search_value=${query}&types=${type}`, {
                 method: "GET",
@@ -46,8 +44,8 @@ function getIds(query, type) {
             if (data.title_results.length != 0) {
                 watchmodeId = data.title_results[0].id;
                 imdbId = data.title_results[0].imdb_id;
-                getStreamingInfo(watchmodeId, query, type)
-                getPicRating(query, imdbId, type)
+                getStreaming(watchmodeId, query, type)
+                getPicandRating(query, imdbId, type)
                     /*If Watchmode does not have the query title (and thus its ID) in its database, that means it does not have any streaming options. This throws an error telling user to pick a different movie or show*/
                     /*You can test this by inputting a movie or show that does not exist*/
             } else throw Error('No movie found by that name');
@@ -59,7 +57,7 @@ function getIds(query, type) {
 }
 
 //Returns all streaming data from Watchmode API for inputted movie or tv show (if found on Watchmode in getIds function)
-function getStreamingInfo(watchmodeId, query, type) {
+function getStreaming(watchmodeId, query, type) {
     fetch("https://watchmode.p.rapidapi.com/title/" + watchmodeId + "/sources/", {
             "method": "GET",
             "headers": {
@@ -74,10 +72,9 @@ function getStreamingInfo(watchmodeId, query, type) {
             //For example, Watchmode has the movie Neo Ned in its database, has an ID for it, but has no streaming links for it available (no subscription, rental or buying options)
             if (data.length != 0) {
                 addbutton.removeAttribute("style", "display:none")
-                return query, watchmodeId;
-                //renderSubData(data, query, type)
-                //renderRentData(data, query, type)
-                //renderBuyData(data, query, type)
+                renderSubData(data, query, type)
+                renderRentData(data, query, type)
+                renderBuyData(data, query, type)
             } else { errormessage.textContent = "No Streaming Options Found! Please try searching for a different movie or TV show." }
         })
         .catch(err => {
@@ -87,7 +84,7 @@ function getStreamingInfo(watchmodeId, query, type) {
 
 
 
-/*Returns links to subscription streaming services where inputted movie or tv show can be watched (if found)
+//Returns links to subscription streaming services where inputted movie or tv show can be watched (if found)
 function renderSubData(data, query, type) {
     var subscriptionoptions = data
         .filter(option => {
@@ -107,11 +104,6 @@ function renderSubData(data, query, type) {
                 link.appendChild(hyperlink)
                 list.appendChild(link)
                 suboptions.appendChild(list);
-                const obj={
-                    type: "subscription",
-                    link: value.web_url
-                }
-                subServiceList.push(obj)
                 subheading.textContent = `${query} is available on these subscription streaming services: `
             })
         }
@@ -126,20 +118,15 @@ function renderSubData(data, query, type) {
                 link.appendChild(hyperlink)
                 list.appendChild(link)
                 suboptions.appendChild(list);
-                const obj={
-                    type: "subscription",
-                    link: value.web_url
-                }
-                subServiceList.push(obj)
                 subheading.textContent = `${query} is available on these subscription streaming services: `
             });
         }
     } else {
         suberror.textContent = `${query} is unavailable on any subscription streaming services at this time.`
     }
-}*/
+}
 
-/*Returns links to websites where inputted movie or tv show can be rented & streamed (if found)
+//Returns links to websites where inputted movie or tv show can be rented & streamed (if found)
 function renderRentData(data, query, type) {
     var rentaloptions = data
         .filter(option => {
@@ -159,11 +146,6 @@ function renderRentData(data, query, type) {
                 link2.appendChild(hyperlink2)
                 list2.appendChild(link2)
                 rentoptions.appendChild(list2);
-                const obj={
-                    type: "rental",
-                    link: value.web_url
-                }
-                subServiceList.push(obj)
                 rentheading.textContent = `${query} can be rented and streamed here: `
             })
         }
@@ -178,20 +160,15 @@ function renderRentData(data, query, type) {
                 link2.appendChild(hyperlink2)
                 list2.appendChild(link2)
                 rentoptions.appendChild(list2);
-                const obj={
-                    type: "rental",
-                    link: value.web_url
-                }
-                subServiceList.push(obj)
                 rentheading.textContent = `${query} can be rented and streamed here: `
             });
         }
     } else {
         renterror.textContent = `${query} is unavailable on any rental streaming services at this time.`
     }
-}*/
+}
 
-/*Returns links to websites where inputted movie or tv show can be purchased & streamed (if found)
+//Returns links to websites where inputted movie or tv show can be purchased & streamed (if found)
 function renderBuyData(data, query, type) {
     var buyingoptions = data
         .filter(option => {
@@ -211,11 +188,6 @@ function renderBuyData(data, query, type) {
                 link3.appendChild(hyperlink3)
                 list3.appendChild(link3)
                 buyoptions.appendChild(list3);
-                const obj={
-                    type: "purchase",
-                    link: value.web_url
-                }
-                subServiceList.push(obj)
                 buyheading.textContent = `${query} can be purchased and streamed here: `
             })
         }
@@ -230,29 +202,24 @@ function renderBuyData(data, query, type) {
                 link3.appendChild(hyperlink3)
                 list3.appendChild(link3)
                 buyoptions.appendChild(list3);
-                const obj={
-                    type: "purchase",
-                    link: value.web_url
-                }
-                subServiceList.push(obj)
                 buyheading.textContent = `${query} can be purchased and streamed here: `
             });
         }
     } else {
         buyerror.textContent = `${query} is unavailable to be purchased and streamed at this time.`
     }
-}*/
+}
 
 
 //Takes imdbId and media type from getIds function and uses TMDB API to find one picture of selected movie or tv show
-function getPicRating(query, imdbId, type) {
+function getPicandRating(query, imdbId, type) {
     apikey2 = "a5c09845f2af6ed970ae332ca8d551ec"
     fetch(
             `https://api.themoviedb.org/3/find/${imdbId}?api_key=${apikey2}&language=en-US&external_source=imdb_id`)
         .then(response => response.json())
         .then((data) => {
             console.log(data)
-            printPicRating(query, data, type)
+            printPicandRating(query, data, type)
         })
         .catch(err => {
             console.error(err);
@@ -261,7 +228,7 @@ function getPicRating(query, imdbId, type) {
 }
 
 //If found, appends the one pic from inputted movie or tv show to page,  as well as its average rating
-function printPicRating(query, data, type) {
+function printPicandRating(query, data, type) {
     tvshow.checked = false;
     movie.checked = false;
     var pic = document.createElement("img");
@@ -288,6 +255,7 @@ function printPicRating(query, data, type) {
     }
 }
 
+
 //Allows users to add a title they searched for to their Watchlist
 const addtoWatchlist = async(event) => {
     event.preventDefault()
@@ -311,12 +279,16 @@ const addtoWatchlist = async(event) => {
     }
 };
 
+//Allows users to add a query they searched for to their Watchlist, provided results were found for query
+addbutton.addEventListener("click", addtoWatchlist)
+
+
 
 //Grabs the query and media type submitted by the user via search button and gives it to getIds function. 
-searchbutton.addEventListener('click', Search) 
+searchbutton.addEventListener('click', streamSearch) 
 
 
-function Search(event){
+function streamSearch(event){
     event.preventDefault();
     errormessage.textContent = "";
     const userinput = document.getElementById('userinput').value
@@ -329,20 +301,14 @@ function Search(event){
         document.getElementById('userinput').value = ""
         return;
     }
-    getIds(userinput, tvorMovie)
+    getIDs(userinput, tvorMovie)
 }
 
-//Allows users to add a query they searched for to their Watchlist, provided results were found for query
-addbutton.addEventListener("click", addtoWatchlist)
-
-
-
-
 //Clears results and data from previous search
-clearbutton.addEventListener('click', Clear)
+clearbutton.addEventListener('click', clearData)
 
 
-function Clear() {
+function clearData() {
     document.getElementById('userinput').value = ""
     tvshow.checked = false;
     movie.checked = false;

@@ -1,5 +1,5 @@
 let deletebuttons=document.querySelectorAll(".deletebutton")
-let detailbuttons=document.querySelectorAll(".detailbutton")
+let infobuttons=document.querySelectorAll(".infobutton")
 let subServiceList=[]
 
 //Takes query and media type submitted by user and returns Watchmode API id & IMDB id for query (if found)
@@ -230,7 +230,7 @@ for (i of deletebuttons) {
   }
 
 //Adds a details button to each movie or tv show on a user's watchlist (gathered from db)
-for (i of detailbuttons) {
+for (i of infobuttons) {
     i.addEventListener('click', function(event) {
      const detailId=event.target.getAttribute("data-id")
      getMediaData(detailId)

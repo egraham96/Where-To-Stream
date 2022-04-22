@@ -1,15 +1,11 @@
 const router = require('express').Router();
-const { User, MediaList, Media /*StreamingService*/ } = require('../models');
-const withAuth = require('../utils/auth');
-//const path = require('path');
-//const { where } = require('sequelize/types');
 
 router.get('/', async(req, res) => {
     if (req.session.logged_in) {
         res.redirect('/api/mylist');
     }
 
-    res.redirect('/login')
+    res.render('homepage')
 
 });
 

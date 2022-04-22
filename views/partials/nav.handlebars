@@ -1,6 +1,7 @@
 <!-- Only display the user watchlist and logout buttons in the nav bar if the user is logged in -->
         {{#if logged_in}}
         <nav>
+            <a href="/"><button>Home</button></a>
             <a href="/api/mylist"><button>My Watchlist</button></a>
             <a href="/search"><button>Search</button></a>
             <button id="logout">Logout</button></a>

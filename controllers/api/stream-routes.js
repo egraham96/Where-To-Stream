@@ -3,33 +3,6 @@ const {StreamingList, User, Media} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-//Return's the streaming links page
-/*router.get('/', withAuth, async (req, res) => {
-    console.log(`in stream routes get / user id ${req.session.user_id}`);
-    
-    try {
-  
-      const userData = await User.findByPk(req.session.user_id);
-      const user= userData.get( {plain: true});
-      console.log(user);
-      const mediaData = await userData.getMedia();
-      
-      const medias = mediaData.map((media) => media.get({ plain: true }));
-      console.log(medias);
-      res.render('watchlist', { 
-        logged_in: req.session.logged_in,
-        medias: medias, 
-        user: user,
-      });
-      console.log('finished render')
-  
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  
-  });*/
-
-
 
 //Returns streaming links for a tv show or movie that has been added to logged in user's watchlist
 router.get('/:id', withAuth, async (req, res) => {
@@ -104,9 +77,6 @@ router.post('/:id', withAuth, async (req, res) => {
       ignoreDuplicates: true,
     });
     
-//Sanitize media data
-//const Streams= StreamListData.get({plain: true})
-//console.log(Streams)
 
     req.session.save(() => {
     req.session.logged_in = true;
