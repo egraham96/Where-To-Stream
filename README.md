@@ -1,10 +1,9 @@
-# Where to Watch
-Project #2 UW Fullstack Coding Bootcamp
+# Where to Stream
 
-## Description
+## Description:
 Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. Additionally, Where to Stream users can add and remove movies and shows to their very own Watchlist.
 
-### Installation Instructions 
+### Installation Instructions:
 Download the repository from Github. Install the dependencies (using npm -i or node install). Then, follow the steps below to configure your db connection:
 
 1. Copy the contents of .env.EXAMPLE into a new file .env
@@ -22,23 +21,22 @@ Finally, to start the server enter "npm start" into your terminal.
 
 You're all set!
 
-
 ## Built With:
 JavaScript
-jQuery
 Node.js
 MySQL2
 MySQL Workbench
 Sequelize
+Connect Session Store using Sequelize
 Express.js
 express-session
-Passport
-Passport-Local
 bcryps.js
 dotenv
 Handlebars
 file-system
-Bulma UI
+HTML
+CSS
+
 
 ## Deployed Links:
 * [See Live Site](https://wheretomovie.herokuapp.com/)
@@ -47,14 +45,11 @@ Bulma UI
 ## Preview of Working Site:
 ![Screenshot of Deployed Application](./public/assets/screenshot.png)
 
-
 ## How to Contribute:
 If you'd like to contribute to this project please send an email to eeg4@uw.edu.
 
 ## How to Test the Application:
 Please see installation instructions above. 
-
-## License:
 
 ## License:
 
