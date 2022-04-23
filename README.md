@@ -1,7 +1,7 @@
 # Where to Stream
 
 ## Description:
-Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. Additionally, Where to Stream users can add and remove movies and shows to their very own Watchlist.
+Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. Where to Stream users can also add or remove movies & shows to their very own Watchlist. Finally, users can also add a personal review of any movie or show on their Watchlist.
 
 ## Installation Instructions:
 Download the repository from Github. Install the dependencies (using npm -i or node install). Then, follow the steps below to configure your db connection:
