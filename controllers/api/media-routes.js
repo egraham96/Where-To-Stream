@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User,Media,MediaList,/*StreamingList*/} = require('../../models');
+const {User,Media,MediaList, /*StreamingList*/} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -12,14 +12,24 @@ router.get('/', withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id);
     const user= userData.get( {plain: true});
     console.log(user);
+
     const mediaData = await userData.getMedia();
-    
     const medias = mediaData.map((media) => media.get({ plain: true }));
     console.log(medias);
+
+    /*const reviewData=await Review.findAll({
+      where: {
+      user_id: req.session.user_id}
+  })
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+    console.log("User Reviews!")
+    console.log(reviews);*/
+
     res.render('watchlist', { 
       logged_in: req.session.logged_in,
       medias: medias, 
       user: user,
+      /*reviews: reviews,*/
     });
     console.log('finished render')
 

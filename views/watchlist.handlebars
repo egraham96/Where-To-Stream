@@ -16,7 +16,19 @@
             <p id="title">{{media.title}}</p>
             <p id="type">{{media.type}}</p>
                 <img src="{{media.image}}">
-                <p class="rating">{{media.average_rating}}</p>
+                <p class="rating">Average User Rating: {{media.average_rating}}</p>
+                {{#if media.medialist.review}}
+                <p id="yourreview">Your Review: {{media.medialist.review}}</p>
+                <button id="deletereview">Delete Review</button>
+                <button id="editreview">Edit Review</button>
+                <form id="editreviewform" style="display:none">
+                <label>Your review of {{media.title}}:</label><br>
+                <input type="text" id="editreview"><br>
+                <button id="editreviewsubmit">Submit Review</button>
+                </form>
+                {{else}}
+                {{>reviewForm}}
+                {{/if}}
                 <button data-id={{media.id}} data-type="{{media.type}}" class="infobutton">Get Streaming Options</button>
                 <button data-id={{media.id}} class= "deletebutton">Delete</button>
         </div>

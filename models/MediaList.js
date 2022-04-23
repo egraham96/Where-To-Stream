@@ -30,7 +30,13 @@ MediaList.init(
       },
       onDelete: 'cascade'
     },
-  },
+ review: {
+   allowNull:true,
+    primaryKey:false,
+    type: DataTypes.STRING,
+    unique:false
+  }
+ },
   {
     sequelize,
     timestamps: false,

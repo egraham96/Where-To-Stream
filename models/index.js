@@ -4,6 +4,7 @@ const StreamingList = require('./StreamingList');
 const MediaList = require('./MediaList');
 
 
+
 StreamingList.hasOne(Media, {
     foreignKey: 'media_id',
     constraints: false
@@ -27,6 +28,7 @@ User.belongsToMany(Media, {
     foreignKey: 'user_id'
 });
 
+
 MediaList.hasMany(Media, {
     foreignKey: 'media_id',
     constraints: false
@@ -49,4 +51,6 @@ MediaList.hasMany(User, {
 
 
 
-module.exports = { User, Media, StreamingList, MediaList }
+
+
+module.exports = { User, Media, StreamingList, MediaList}

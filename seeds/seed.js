@@ -6,6 +6,7 @@ const mediaData = require('./media.json');
 const streamingOptions = require('./streamingList.json');
 const mediaListData = require('./mediaList.json');
 
+
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
@@ -29,6 +30,7 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
+  
   
   process.exit(0);
 };

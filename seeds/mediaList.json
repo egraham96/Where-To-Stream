@@ -1,7 +1,8 @@
   [
     {
       "media_id": 1,
-      "user_id": 6
+      "user_id": 6,
+      "review": "This is a great movie!"
     },
     {
       "media_id": 3,
@@ -9,35 +10,44 @@
     },
     {
       "media_id": 7,
-      "user_id": 6
+      "user_id": 6,
+      "review": "Far from my favorite"
+
     },
     {
       "media_id": 3,
-      "user_id": 3
+      "user_id": 3,
+      "review": "Lame boo corny, tomato tomato tomato"
     },
     {
       "media_id": 4,
-      "user_id": 3
+      "user_id": 3,
+      "review": "Not Pitt's finest work"
     },
     {
       "media_id": 5,
-      "user_id": 1
+      "user_id": 1,
+      "review": "Big fan!"
     },
   
     {
       "media_id": 8,
-      "user_id": 1
+      "user_id": 1,
+      "review": "Yeehaw!"
     },
     {
       "media_id": 9,
-      "user_id": 6
+      "user_id": 6,
+      "review": "I'd give it a 2/10"
     },
     {
       "media_id": 10,
-      "user_id": 8
+      "user_id": 8,
+      "review": "An absolute must watch!"
     },
     {
       "media_id": 11,
-      "user_id": 1
+      "user_id": 1,
+      "review": "Two thumbs up!"
     }
   ]
