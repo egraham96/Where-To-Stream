@@ -4,8 +4,8 @@ const popularT=document.getElementById("populartv")
 
 
 const popularMovies = async() => {
-    apiKey="a5c09845f2af6ed970ae332ca8d551ec"
-    await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&language=en-US&page=1`)
+    //apiKey="a5c09845f2af6ed970ae332ca8d551ec"
+    await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.TMDB_KEY}&language=en-US&page=1`)
     .then(response => response.json())
     .then((data) => {console.log(data.results);
     printmovieData(data.results)})
@@ -14,8 +14,8 @@ const popularMovies = async() => {
 });}
 
 const popularTV = async() => {
-    apiKey="a5c09845f2af6ed970ae332ca8d551ec"
-    await fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${apiKey}&language=en-US&page=1`)
+    //apiKey="a5c09845f2af6ed970ae332ca8d551ec"
+    await fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${process.env.TMDB_KEY}&language=en-US&page=1`)
     .then(response => response.json())
     .then((data) => {console.log(data.results);
     printTVData(data.results)})

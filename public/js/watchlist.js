@@ -12,7 +12,7 @@ function getIdNums(id, query, type, watchmodeId) {
             `https://watchmode.p.rapidapi.com/search/?search_field=name&search_value=${query}&types=${type}`, {
                 method: "GET",
                 headers: {
-                    "x-rapidapi-key": "be9a60e677msh27b9eb97af299e8p1c5a0djsnb9ba03ed5bd6",
+                    "x-rapidapi-key": `${process.ENV.RAPIDAPI_KEY1}`,//"be9a60e677msh27b9eb97af299e8p1c5a0djsnb9ba03ed5bd6",
                     "x-rapidapi-host": "watchmode.p.rapidapi.com",
                 },
             }

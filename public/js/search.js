@@ -30,11 +30,12 @@ let imdbId=""
 
 //Takes query and media type submitted by user and returns Watchmode API id & IMDB id for query (if found)
 function getIDs(query, type) {
+
     fetch(
             `https://watchmode.p.rapidapi.com/search/?search_field=name&search_value=${query}&types=${type}`, {
                 method: "GET",
                 headers: {
-                    "x-rapidapi-key": "be9a60e677msh27b9eb97af299e8p1c5a0djsnb9ba03ed5bd6",
+                    "x-rapidapi-key": `${process.ENV.RAPIDAPI_KEY1}`,
                     "x-rapidapi-host": "watchmode.p.rapidapi.com",
                 },
             }
@@ -63,7 +64,7 @@ function getStreaming(watchmodeId, query, type) {
             "headers": {
                 "regions": "US",
                 "x-rapidapi-host": "watchmode.p.rapidapi.com",
-                "x-rapidapi-key": "c07f23f016msh8cfc8ae8ebdfde7p1b8ec0jsna993d191f8f9"
+                "x-rapidapi-key": `${process.ENV.RAPIDAPI_KEY1}`//"c07f23f016msh8cfc8ae8ebdfde7p1b8ec0jsna993d191f8f9"
             },
         })
         .then(response => response.json())
@@ -213,9 +214,9 @@ function renderBuyData(data, query, type) {
 
 //Takes imdbId and media type from getIds function and uses TMDB API to find one picture of selected movie or tv show
 function getPicandRating(query, imdbId, type) {
-    apikey2 = "a5c09845f2af6ed970ae332ca8d551ec"
+    //apikey2 = "a5c09845f2af6ed970ae332ca8d551ec"
     fetch(
-            `https://api.themoviedb.org/3/find/${imdbId}?api_key=${apikey2}&language=en-US&external_source=imdb_id`)
+            `https://api.themoviedb.org/3/find/${imdbId}?api_key=${process.env.TMDB_KEY2}&language=en-US&external_source=imdb_id`)
         .then(response => response.json())
         .then((data) => {
             console.log(data)
