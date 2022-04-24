@@ -1,6 +1,7 @@
 
-<form id="addreviewform">
-                <label>What did you think of {{media.title}}?</label><br>
-                <input type="text" id="addreview"><br>
-                <button id="addreviewsubmit">Submit Review</button>
+<form data-id={{this.id}} class="addreviewform">
+                <label>What did you think of {{this.title}}?</label><br>
+                <input type="text" data-id={{this.id}} class="addreviewinput"><br>
+                <button data-id={{this.id}} class="addreviewsubmit">Add Review</button>
                 </form>
+      

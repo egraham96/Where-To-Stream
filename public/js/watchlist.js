@@ -1,5 +1,9 @@
 let deletebuttons=document.querySelectorAll(".deletebutton")
 let infobuttons=document.querySelectorAll(".infobutton")
+let delete_reviewbtns=document.querySelectorAll(".deletereview")
+let edit_reviewbtns=document.querySelectorAll(".editreview")
+let submit_editbtns=document.querySelectorAll(".editsubmit")
+let add_reviewbtns=document.querySelectorAll(".addreviewsubmit")
 let subServiceList=[]
 
 //Takes query and media type submitted by user and returns Watchmode API id & IMDB id for query (if found)
@@ -219,23 +223,125 @@ if (response.status=200) {
 }
 }
 
+const add_reviewHandler = async (event, id) => { 
+    event.preventDefault();
+    console.log( "inside add_reviewHandler function")
+
+    // Collect values 
+    const addreview = document.querySelector(`[type='text'][data-id="${id}"][class='addreviewinput']`).value.trim();
+
+    if (addreview) {
+      // Send a POST request to the API endpoint
+      const response = await fetch(`/api/mylist/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ addreview}),
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.status=200) {
+        // If successful, redirect the browser to the profile page
+        document.location.replace(`/api/mylist`);
+      } else {
+        alert(response.statusText);
+    }
+  }
+};
+
+const edit_reviewHandler = async (event, id) => { 
+    event.preventDefault();
+    console.log( "inside edit_reviewHandler function")
+
+    // Collect values 
+    const editreview = document.querySelector(`[type='text'][data-id="${id}"][class='editinput']`).value.trim();
+    if (editreview) {
+        // Send a POST request to the API endpoint
+        const response = await fetch(`/api/mylist/${id}`, {
+          method: 'PUT',
+          body: JSON.stringify({ editreview}),
+          headers: { 'Content-Type': 'application/json' },
+        })
+    
+      if (response.ok) {
+        // If successful, redirect the browser to the profile page
+        document.location.replace(`/api/mylist`);
+      } else {
+        alert(response.statusText);
+    }
+  }
+};
 
 
-//Adds a delete button to each movie or tv show on a user's watchlist (gathered from db)
-for (i of deletebuttons) {
-    i.addEventListener('click', function(event) {
+const delete_reviewHandler = async (event, id) => { 
+    event.preventDefault();
+    console.log( "inside delete_reviewHandler function")
+
+      // Send a POST request to the API endpoint
+      const response = await fetch(`/api/mylist/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({}),
+        headers: { 'Content-Type': 'application/json' },
+      });
+    
+      if (response.ok) {
+        // If successful, redirect the browser to the profile page
+        document.location.replace(`/api/mylist`);
+      } else {
+        alert(response.statusText);
+    }
+  }
+
+
+
+//Adds an event listener to each movie or tv show's "Delete {{media.type}} from Watchlist" button on a user's watchlist (gathered from db)
+for (i of deletebuttons){
+i.addEventListener('click', function(event) {
      const deleteId=event.target.getAttribute("data-id")
       deletefromWatchlist(deleteId);
     });
-  }
+}
+  
 
-//Adds a details button to each movie or tv show on a user's watchlist (gathered from db)
+//Adds an event listener to each movie or tv show's "Get Streaming Options" button on a user's watchlist (gathered from db)
 for (i of infobuttons) {
     i.addEventListener('click', function(event) {
      const detailId=event.target.getAttribute("data-id")
      getMediaData(detailId)
     });
   }
+
+//Adds an event listener to each movie or tv show's "Delete Review" button on a user's watchlist
+for (i of delete_reviewbtns) {
+    i.addEventListener('click', function(event) {
+     const delete_reviewId=event.target.getAttribute("data-id")
+     delete_reviewHandler(event, delete_reviewId)
+    });
+  }
+
+//Adds an event listener to each movie or tv show's "Edit Review" button on a user's watchlist
+  for (i of edit_reviewbtns) {
+    i.addEventListener('click', function(event) {
+     const edit_reviewId=event.target.getAttribute("data-id")
+     const form =document.querySelector(`[data-id="${edit_reviewId}"][class='editform']`)
+     form.removeAttribute("style", "display:none");
+    });
+  }
+
+//Adds an event listener to each movie or tv show's "Submit Review" button on a user's watchlist
+  for (i of submit_editbtns) {
+    i.addEventListener('click', function(event) {
+     const submit_editId=event.target.getAttribute("data-id")
+     edit_reviewHandler(event, submit_editId)
+    });
+  }
+
+//Adds an event listener to each movie or tv show's "Add Review" button on a user's watchlist
+  for (i of add_reviewbtns) {
+    i.addEventListener('click', function(event) {
+     const add_reviewId=event.target.getAttribute("data-id")
+     add_reviewHandler(event, add_reviewId)
+    });
+}
+
 
 
 

@@ -18,19 +18,19 @@
                 <img src="{{media.image}}">
                 <p class="rating">Average User Rating: {{media.average_rating}}</p>
                 {{#if media.medialist.review}}
-                <p id="yourreview">Your Review: {{media.medialist.review}}</p>
-                <button id="deletereview">Delete Review</button>
-                <button id="editreview">Edit Review</button>
-                <form id="editreviewform" style="display:none">
+                <p id="your_review">Your Review: {{media.medialist.review}}</p>
+                <button data-id={{media.id}} class="deletereview">Delete Review</button>
+                <button data-id={{media.id}} class ="editreview">Edit Review</button>
+                <form class="editform" data-id={{media.id}} style="display:none">
                 <label>Your review of {{media.title}}:</label><br>
-                <input type="text" id="editreview"><br>
-                <button id="editreviewsubmit">Submit Review</button>
+                <input type="text" data-id={{media.id}} class="editinput"><br>
+                <button data-id={{media.id}} class="editsubmit">Submit Review</button>
                 </form>
                 {{else}}
-                {{>reviewForm}}
+                {{>reviewForm this}}
                 {{/if}}
                 <button data-id={{media.id}} data-type="{{media.type}}" class="infobutton">Get Streaming Options</button>
-                <button data-id={{media.id}} class= "deletebutton">Delete</button>
+                <button data-id={{media.id}} class= "deletebutton">Delete {{media.type}} from Watchlist</button>
         </div>
 {{/each}}
 </div>

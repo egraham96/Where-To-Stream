@@ -3,7 +3,7 @@ const {User,Media,MediaList, /*StreamingList*/} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-//Render a user's entire watchlist
+//Render a user's entire watchlist 
 router.get('/', withAuth, async (req, res) => {
   console.log(`in media routes get / user id ${req.session.user_id}`);
   
@@ -17,19 +17,11 @@ router.get('/', withAuth, async (req, res) => {
     const medias = mediaData.map((media) => media.get({ plain: true }));
     console.log(medias);
 
-    /*const reviewData=await Review.findAll({
-      where: {
-      user_id: req.session.user_id}
-  })
-    const reviews = reviewData.map((review) => review.get({ plain: true }));
-    console.log("User Reviews!")
-    console.log(reviews);*/
-
     res.render('watchlist', { 
       logged_in: req.session.logged_in,
       medias: medias, 
       user: user,
-      /*reviews: reviews,*/
+
     });
     console.log('finished render')
 
@@ -121,6 +113,54 @@ router.get('/:id', withAuth, async (req, res) => {
         res.status(500).json(err);
       }
     });
+
+//Get info about one movie or tv show from user's watchlist
+router.put('/:id', withAuth, async (req, res) => {
+  console.log(`in media routes put :id / user id ${req.session.user_id}`);
+  console.log(req.params.id)
+  let content=""
+  if (req.body.addreview){
+  content=req.body.addreview
+  }
+  else if (req.body.editreview){
+  content=req.body.editreview}
+  else {content=""}
+  
+
+  try {
+  const myList= await MediaList.findOne(
+    {
+      where: {
+        user_id: req.session.user_id,
+        media_id: req.params.id
+      }
+    }
+  );
+console.log(myList.id)
+
+  if (!myList) {
+    res.status(404).json({ message: 'No MediaList found with this media id!' });
+    return;
+  }
+  
+  const updatedList= await MediaList.update(
+    {
+      review: content
+    },
+    {
+      where: {
+        id: myList.id
+      },
+    }
+  );
+ 
+  console.log(updatedList)
+  res.status(200).json(updatedList)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 
 module.exports = router;
