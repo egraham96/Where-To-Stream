@@ -1,5 +1,6 @@
 
-const clearbutton = document.getElementById("clearbutton");
+//const clearbutton = document.getElementById("clearbutton");
+const cbutton=document.querySelector(".button-c")
 const movie = document.getElementById("moviecheck")
 const tvshow = document.getElementById("tvcheck")
 const errormessage = document.getElementById("errormessage");
@@ -306,7 +307,7 @@ function streamSearch(event){
 }
 
 //Clears results and data from previous search
-clearbutton.addEventListener('click', clearData)
+cbutton.addEventListener('click', clearData)
 
 
 function clearData() {

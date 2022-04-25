@@ -3,29 +3,30 @@ body {
 }
 
 /* CSS for main.handlebars, homepage.handlebars and nav.handlebars partial*/
-header{
-display:flex;
-flex-direction: column;
-flex-wrap:wrap;
-justify-content:center;
-align-items: center;
+header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 header img {
   display: block;
 }
 
-header img:hover + .hidden {
+header img:hover+.hidden {
   display: block;
 }
 
-.hidden{
-display:none;
-font-family:Arial, Helvetica, sans-serif;
-font-size:18px;}
+.hidden {
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
 
 .mainnav {
-  height:50px;
+  height: 50px;
   background: gainsboro;
 }
 
@@ -171,11 +172,16 @@ font-size:18px;}
 
 /* CSS for watchlist.handlebars*/
 
-#watchheader {align-self:center;}
+#watchheader {
+  align-self: center;
+}
 
-#mainbox{display:flex;}
+#mainbox {
+  display: flex;
+}
 
-#watchaside{width:15%;
+#watchaside {
+  width: 15%;
 }
 
 
@@ -190,7 +196,7 @@ font-size:18px;}
 }
 
 .watchnav .menuItems li {
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
 .watchnav .menuItems li a {
@@ -223,42 +229,45 @@ font-size:18px;}
 }
 
 
-#watchlist{
-  width:85%;
+#watchlist {
+  width: 85%;
 }
 
-#greeting{
+.greeting {
   font-family: 'Londrina Solid', cursive;
-  font-size:30px;
-  text-align:center;
+  font-size: 30px;
+  text-align: center;
 }
 
 #mediacontainer {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
 
-.eachmedia{
-  width:50%;
-  font-family:Arial, Helvetica, sans-serif;
+.eachmedia {
+  width: 50%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.mediainfobox{
-display:flex;
-align-items: center;
+.mediainfobox {
+  display: flex;
+  align-items: center;
 }
 
 /*.mediabasic{width:70%}*/
 
-.mediabasic img{
+.mediabasic img {
   border: solid 5px black;
 }
 
-.getmediainfo{display:inline;}
+.getmediainfo {
+  display: inline;
+}
 
 .infobutton {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
   border: solid 2px black;
   outline: 0;
   background-color: white;
@@ -266,6 +275,7 @@ align-items: center;
   position: relative;
   cursor: pointer;
 }
+
 .infobutton::after {
   content: '';
   position: absolute;
@@ -279,10 +289,12 @@ align-items: center;
   border: solid 2px rgb(136, 117, 117);
   transition: all 0.3s ease-in-out;
 }
+
 .infobutton::after {
   width: 90%;
   height: 90%;
 }
+
 .infobutton:hover::after {
   width: 100%;
   height: 100%;
@@ -292,6 +304,7 @@ align-items: center;
 
 .deletebutton {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
   border: solid 2px black;
   outline: 0;
   background-color: white;
@@ -299,6 +312,7 @@ align-items: center;
   position: relative;
   cursor: pointer;
 }
+
 .deletebutton::after {
   content: '';
   position: absolute;
@@ -312,10 +326,12 @@ align-items: center;
   border: solid 2px rgb(136, 117, 117);
   transition: all 0.3s ease-in-out;
 }
+
 .deletebutton::after {
   width: 90%;
   height: 90%;
 }
+
 .deletebutton:hover::after {
   width: 100%;
   height: 100%;
@@ -324,4 +340,179 @@ align-items: center;
 }
 
 
+/* CSS for stream.handlebars*/
 
+#streamsection{
+  width:100%;
+  display:flex;
+}
+
+#linkscontainer {padding-top:80px;
+font-family: Arial, Helvetica, sans-serif;
+font-size:18px;}
+
+#streamlist {
+word-wrap: break-word;}
+
+#streamlist li {
+  list-style-image: url(/images/star.png)
+}
+
+#streamlist li a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+#mediachosen {width:30%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: black;}
+
+#mediachosen img{border:3px solid black;}
+
+#mediatitle{font-family: Arial, Helvetica, sans-serif;
+font-size:30px;}
+
+.fixedstream {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.fixedstream button {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 8px #cfcfcf;
+}
+
+.fixedstream button:hover {
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 8px #f9f8fc;
+}
+
+#fixedSbutton {
+  position: relative;
+  top: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 8px #d9d4e7;
+  width: 200px;
+  height: 65px;
+  background-color: #d9d4e7;
+  animation-duration: 5s;
+}
+
+.fixedstream .button-s {
+  position: absolute;
+  width: 200px;
+  height: 65px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #f9f8fc;
+  border: 2.5px solid #0e172c;
+  transition: background-color 2.2s;
+  transition-duration: 3s;
+  transition: 1.5s;
+}
+
+.fixedstream .button-s:hover {
+  position: absolute;
+  top: 30px;
+  background-color: #fec7d7;
+}
+
+.fixedstream .button-s a{
+  font-family: 'Londrina Solid', cursive;
+  font-size: 20px;
+  display: block;
+  text-decoration: none;
+  color: #0e172c;
+  transition: 1.5s;
+}
+
+.fixedstream.button-s a:hover {
+  letter-spacing: 5px;
+}
+
+/* CSS for search.handlebars*/
+.fixedclear {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.fixedclear button {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 8px #cfcfcf;
+}
+
+.fixedclear button:hover {
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 8px #f9f8fc;
+}
+
+#clearbutton {
+  position: relative;
+  top: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 8px #d9d4e7;
+  width: 200px;
+  height: 65px;
+  background-color: #d9d4e7;
+  animation-duration: 5s;
+}
+
+.fixedclear .button-c {
+  position: absolute;
+  width: 200px;
+  height: 65px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #f9f8fc;
+  border: 2.5px solid #0e172c;
+  transition: background-color 2.2s;
+  transition-duration: 3s;
+  transition: 1.5s;
+}
+
+.fixedclear .button-c:hover {
+  position: absolute;
+  top: 30px;
+  background-color: #fec7d7;
+}
+
+.fixedclear .button-c{
+  font-family: 'Londrina Solid', cursive;
+  font-size: 20px;
+  display: block;
+  text-decoration: none;
+  color: #0e172c;
+  transition: 1.5s;
+}
+
+.fixedclear.button-c a:hover {
+  letter-spacing: 5px;
+}

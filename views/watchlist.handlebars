@@ -30,7 +30,7 @@
 
 
 <div id="watchlist">
-<div id="greeting">
+<div class="greeting">
     Hello {{user.user_name}}!
 </div>
 <div id="mediacontainer">
@@ -38,7 +38,7 @@
     <div class="eachmedia">
         <div class="mediainfobox">
         <div class="mediabasic">
-        <p id="title">{{media.title}}</p>
+        <p id="title"><u>{{media.title}}</u></p>
         <p id="type" style="display:none">{{media.type}}</p>
         <img src="{{media.image}}">
         </div>
@@ -48,9 +48,9 @@
         </div>
         </div>
      <div class="reviewbox">
-            <p class="rating">Average User Rating: {{media.average_rating}}</p>
+            <p class="rating"><u>Average User Rating</u>: {{media.average_rating}}</p>
             {{#if media.medialist.review}}
-            <p id="your_review">Your Review: {{media.medialist.review}}</p>
+            <p id="your_review"><u>Your Review</u>: {{media.medialist.review}}</p>
             <button data-id={{media.id}} class="deletereview">Delete Review</button>
             <button data-id={{media.id}} class="editreview">Edit Review</button>
             <form class="editform" data-id={{media.id}} style="display:none">
