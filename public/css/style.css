@@ -1,3 +1,158 @@
+body {
+  background-color: gainsboro;
+}
+
+header{
+display:flex;
+flex-direction: column;
+flex-wrap:wrap;
+justify-content:center;
+align-items: center;
+}
+
+header img {
+  display: block;
+}
+
+nav {
+  height:50px;
+  background: gainsboro;
+}
+
+nav .menuItems {
+  list-style: none;
+  display: flex;
+}
+
+nav .menuItems li {
+  margin-right: 50px;
+}
+
+nav .menuItems li a {
+  text-decoration: none;
+  color: #8f8f8f;
+  font-family: 'Londrina Solid', cursive;
+  font-size: 24px;
+  font-weight: 400;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  text-transform: uppercase;
+}
+
+nav .menuItems li a::before {
+  content: attr(data-item);
+  transition: 0.5s;
+  color: #8254ff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+nav .menuItems li a:hover::before {
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
 #addbutton {
-    font-size: 24px;
+  font-size: 24px;
+}
+
+.trendingheader {
+  text-align: center;
+  font-family: 'Londrina Solid', cursive;
+  font-size: 30px;
+}
+
+#popularmovies {
+  display: flex;
+  justify-content: center;
+}
+
+#populartv {
+  display: flex;
+  justify-content: center;
+}
+
+.posterpic p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.posterpic img {
+  border: 4px solid black;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.fixed button {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 8px #cfcfcf;
+}
+
+.fixed button:hover {
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 8px #f9f8fc;
+}
+
+#fixedbutton {
+  position: relative;
+  top: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 8px #d9d4e7;
+  width: 200px;
+  height: 65px;
+  background-color: #d9d4e7;
+  animation-duration: 5s;
+}
+
+.fixed .button-os {
+  position: absolute;
+  width: 200px;
+  height: 65px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #f9f8fc;
+  border: 2.5px solid #0e172c;
+  transition: background-color 2.2s;
+  transition-duration: 3s;
+  transition: 1.5s;
+}
+
+.fixed .button-os:hover {
+  position: absolute;
+  top: 30px;
+  background-color: #fec7d7;
+}
+
+.fixed .button-os a {
+  font-family: 'Londrina Solid', cursive;
+  font-size: 20px;
+  display: block;
+  text-decoration: none;
+  color: #0e172c;
+  transition: 1.5s;
+}
+
+.fixed.button-os a:hover {
+  letter-spacing: 5px;
 }

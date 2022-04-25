@@ -1,16 +1,19 @@
 <!-- Only display the user watchlist and logout buttons in the nav bar if the user is logged in -->
-        {{#if logged_in}}
-        <nav>
-            <a href="/"><button>Home</button></a>
-            <a href="/api/mylist"><button>My Watchlist</button></a>
-            <a href="/search"><button>Search</button></a>
-            <button id="logout">Logout</button></a>
-        </nav>
-        
-        {{else}}
-        <nav>
-           <a href="/login"><button>Login</button></a>
-           <a href="/signup"><button>Signup</button></a>
-        </nav>
-        {{/if}}
+{{#if logged_in}}
+<nav>
+    <ul class="menuItems">
+        <li><a href="/" data-item='Home'>Home</a></li>
+        <li><a href="/api/mylist" data-item='Watchlist'>My Watchlist</a></li>
+        <li><a href="/search" data-item='Search'>Search</a></li>
+        <li><a href='#' id="logout" data-item='Logout'>Logout</a></li>
+    </ul>
+</nav>
 
+{{else}}
+<nav>
+    <ul class="menuItems">
+        <li><a href="/login" data-item='Login'>Login</a></li>
+        <li><a href="/signup" data-item='Signup'>Signup</a></li>
+    </ul>
+</nav>
+{{/if}}

@@ -37,7 +37,7 @@ function printmovieData(data){
         var paraEl=document.createElement("p")
         var para=document.createElement("p")
         para.textContent=value.title
-        paraEl.textContent="Average rating: " + value.vote_average + "/10"
+        paraEl.textContent="Average user rating: " + value.vote_average + "/10"
         var pic = document.createElement("img");
         var path= value.poster_path;
         var imagelink= "https://image.tmdb.org/t/p/w200"+ path;
@@ -62,7 +62,7 @@ function printTVData(data){
             var paraEl=document.createElement("p")
             var para=document.createElement("p")
             para.textContent=value.name
-            paraEl.textContent="Average rating: " + value.vote_average + "/10"
+            paraEl.textContent="Average user rating: " + value.vote_average + "/10"
             var pic = document.createElement("img");
             var path= value.poster_path;
             var imagelink= "https://image.tmdb.org/t/p/w200"+ path;

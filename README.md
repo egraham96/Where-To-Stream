@@ -39,8 +39,8 @@ You're all set!
 
 
 ## Deployed Links:
-* [See Live Site](https://wheretomovie.herokuapp.com/)
-* [Link to GitHub Repo](https://github.com/egraham96/Where-to-Watch)
+* [See Live Site](https://where-to-stream.herokuapp.com/)
+* [Link to GitHub Repo](https://github.com/egraham96/Where-To-Stream)
 
 ## Preview of Working Site:
 ![Screenshot of Deployed Application](./public/assets/screenshot.png)
