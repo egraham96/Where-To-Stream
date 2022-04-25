@@ -2,6 +2,7 @@ body {
   background-color: gainsboro;
 }
 
+/* CSS for main.handlebars, homepage.handlebars and nav.handlebars partial*/
 header{
 display:flex;
 flex-direction: column;
@@ -14,21 +15,30 @@ header img {
   display: block;
 }
 
-nav {
+header img:hover + .hidden {
+  display: block;
+}
+
+.hidden{
+display:none;
+font-family:Arial, Helvetica, sans-serif;
+font-size:18px;}
+
+.mainnav {
   height:50px;
   background: gainsboro;
 }
 
-nav .menuItems {
+.mainnav .menuItems {
   list-style: none;
   display: flex;
 }
 
-nav .menuItems li {
+.mainnav .menuItems li {
   margin-right: 50px;
 }
 
-nav .menuItems li a {
+.mainnav .menuItems li a {
   text-decoration: none;
   color: #8f8f8f;
   font-family: 'Londrina Solid', cursive;
@@ -39,10 +49,10 @@ nav .menuItems li a {
   text-transform: uppercase;
 }
 
-nav .menuItems li a::before {
+.mainnav .menuItems li a::before {
   content: attr(data-item);
   transition: 0.5s;
-  color: #8254ff;
+  color: #fec7d7;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -52,7 +62,7 @@ nav .menuItems li a::before {
   overflow: hidden;
 }
 
-nav .menuItems li a:hover::before {
+.mainnav .menuItems li a:hover::before {
   width: 100%;
   transition: all 0.5s ease-in-out;
 }
@@ -155,4 +165,80 @@ nav .menuItems li a:hover::before {
 
 .fixed.button-os a:hover {
   letter-spacing: 5px;
+}
+
+
+
+/* CSS for watchlist.handlebars*/
+
+#watchheader {align-self:center;}
+
+#mainbox{display:flex;}
+
+#watchaside{width:15%;
+}
+
+
+.watchnav {
+  background: gainsboro;
+}
+
+.watchnav .menuItems {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.watchnav .menuItems li {
+  margin-bottom:15px;
+}
+
+.watchnav .menuItems li a {
+  text-decoration: none;
+  color: #8f8f8f;
+  font-family: 'Londrina Solid', cursive;
+  font-size: 20px;
+  font-weight: 400;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.watchnav .menuItems li a::before {
+  content: attr(data-item);
+  transition: 0.5s;
+  color: #fec7d7;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.watchnav .menuItems li a:hover::before {
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+
+#watchlist{
+  width:85%;
+}
+
+#greeting{
+  font-family: 'Londrina Solid', cursive;
+  font-size:30px;
+  text-align:center;
+}
+
+#mediacontainer {
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction: row;
+}
+
+#solomedia{
+  font-family:Arial, Helvetica, sans-serif;
 }

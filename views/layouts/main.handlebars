@@ -12,15 +12,10 @@
 </head>
 
 <body>
-    <header id="mainheader">
-        <img src="/images/logo.png">
-        {{>nav}}
-    </header>
-    <main>
-        {{{ body }}}
-    </main>
+{{{ body }}}
 
-    <!-- Only include the logout script if the user is logged in -->
+
+    <!--Only include the logout script if the user is logged in -->
     {{#if logged_in}}
     <script src="/js/search.js"></script>
     <script src="/js/logout.js"></script>
