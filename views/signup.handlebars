@@ -1,31 +1,62 @@
 
-     <header id="mainheader">
+<header>
         <img src="/images/logo.png">
-       <p>Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. </p></div>
-        {{>nav}}
+        <p>Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. </p>
+        {{#if logged_in}}
+<nav class="mainnav">
+    <ul class="menuItems">
+        <li><a href="/" data-item='Home'>Home</a></li>
+        <li><a href="/api/mylist" data-item='My Watchlist'>My Watchlist</a></li>
+        <li><a href="/search" data-item='Search'>Search</a></li>
+        <li><a href='#' id="logout" data-item='Logout'>Logout</a></li>
+    </ul>
+</nav>
+
+{{else}}
+<nav class="mainnav">
+    <ul class="menuItems">
+        <li><button id="signupbutton"><a data-item='Signup'>Signup</a></button></li>
+    </ul>
+</nav>
+{{/if}}
      </header>
 
 
-<div>
-    <h2>Create an Account</h2>
-    <form class="form signup-form">
-        <div>
-            <label for="username-signup">Username:</label>
-            <input type="text" id="username-signup" />
+
+
+<!--Sign Up Modal-->
+    <div class="modal">
+        <div class="modal-background"></div>
+         <div class="modal-content">
+             <h2>Sign up</h2>
+            <form>
+                <div>
+                    <label>Email</label>
+                    <div>
+                        <input type="text" placeholder="Email" id="modal-email">
+                    </div>
+                <div>
+                    <label>Username</label>
+                    <div>
+                        <input type="text" placeholder="Username" id="modal-username">
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <div>
+                            <input type="password" placeholder="Password" id="modal-password">
+                        </div>
+                </div>
+                <div>
+                    <button id="modal-signup-button">Create Your Account!</button>
+                </div>
+                <div >
+                    Already have an account? <a href="/login">Login here!</a>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="email-signup">Email:</label>
-            <input type="text" id="email-signup" />
-        </div>
-        <div>
-            <label for="password-signup">Password:</label>
-            <input type="password" id="password-signup" />
-        </div>
-        <div>
-            <button id="signupsubmit">Sign Up</button>
-        </div>
-    </form>
-</div>
+    </div>
+
 
 
 <script src="/js/signup.js"></script>
+

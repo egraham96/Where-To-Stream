@@ -1,7 +1,24 @@
 <header id="mainheader">
         <img src="/images/logo.png">
         <p>Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. </p></div>
-        {{>nav}}
+        {{#if logged_in}}
+<nav class="mainnav">
+    <ul class="menuItems">
+        <li><a href="/" data-item='Home'>Home</a></li>
+        <li><a href="/api/mylist" data-item='My Watchlist'>My Watchlist</a></li>
+        <li><a href="/search" data-item='Search'>Search</a></li>
+        <li><a href='#' id="logout" data-item='Logout'>Logout</a></li>
+    </ul>
+</nav>
+
+{{else}}
+<nav class="mainnav">
+    <ul class="menuItems">
+        <li><a href="/login" data-item='Login'>Login</a></button></li>
+        <li><a href="/signup"data-item='Signup'>Signup</a></button></li>
+    </ul>
+</nav>
+{{/if}}
      </header>
 <br>
 <br>
