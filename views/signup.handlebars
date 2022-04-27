@@ -1,11 +1,13 @@
 
-<header>
+<header id="signupheader">
         <img src="/images/logo.png">
         <p>Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. </p>
+        <p>Users can also add or remove movies and shows to their very own Watchlist. </p>
+        <p>Finally, Where to Stream users can also add personal reviews of any movie or show on their Watchlist.</p>
         {{#if logged_in}}
 <nav class="mainnav">
     <ul class="menuItems">
-        <li><a href="/" data-item='Home'>Home</a></li>
+        <li><a href="/redex" data-item='Home'>Home</a></li>
         <li><a href="/api/mylist" data-item='My Watchlist'>My Watchlist</a></li>
         <li><a href="/search" data-item='Search'>Search</a></li>
         <li><a href='#' id="logout" data-item='Logout'>Logout</a></li>
@@ -15,7 +17,7 @@
 {{else}}
 <nav class="mainnav">
     <ul class="menuItems">
-        <li><button id="signupbutton"><a data-item='Signup'>Signup</a></button></li>
+        <li><button id="signup_button"><a data-item='Signup'>Signup</a></button></li>
     </ul>
 </nav>
 {{/if}}
@@ -28,32 +30,39 @@
     <div class="modal">
         <div class="modal-background"></div>
          <div class="modal-content">
-             <h2>Sign up</h2>
+            <div class="container">
+            <div class="brand-logo"></div>
+            <div class="brand-title"></div>
+            <div class="inputs">
+            <h2>Sign Up</h2>
             <form>
                 <div>
                     <label>Email</label>
                     <div>
-                        <input type="text" placeholder="Email" id="modal-email">
+                        <input type="text" placeholder="Email" id="modal-email-signup">
                     </div>
                 <div>
                     <label>Username</label>
                     <div>
-                        <input type="text" placeholder="Username" id="modal-username">
+                        <input type="text" placeholder="Username" id="modal-username-signup">
                     </div>
                     <div>
                         <label>Password</label>
                         <div>
-                            <input type="password" placeholder="Password" id="modal-password">
+                            <input type="password" placeholder="Password" id="modal-password-signup">
                         </div>
+                 <div>
+                    <br>
+                    </div>
+                    <button id="modal-signup-button">Sign Up!</button>
                 </div>
-                <div>
-                    <button id="modal-signup-button">Create Your Account!</button>
-                </div>
-                <div >
+                <br><br>
+                <div class="footermodal">
                     Already have an account? <a href="/login">Login here!</a>
                 </div>
             </form>
         </div>
+    </div>
     </div>
 
 

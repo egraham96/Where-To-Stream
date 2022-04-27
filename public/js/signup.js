@@ -1,6 +1,6 @@
 // Sign In Modal 
 
-var signupButton = document.getElementById('signupbutton');
+var signupButton = document.getElementById('signup_button');
 var modalSignUpButton = document.getElementById('modal-signup-button');
 var modalBg = document.querySelector('.modal-background');
 var modal = document.querySelector('.modal');
@@ -25,11 +25,11 @@ window.onclick = function(event) {
 
 const modalSignUpButtonHandler = async (event) => {
     event.preventDefault();
-    const user_email = document.getElementById('modal-email').value.trim();
+    const user_email = document.getElementById('modal-email-signup').value.trim();
     console.log(user_email)
-    const user_name=document.getElementById('modal-username').value.trim();
+    const user_name=document.getElementById('modal-username-signup').value.trim();
     console.log(user_name)
-    const user_password = document.getElementById('modal-password').value.trim();
+    const user_password = document.getElementById('modal-password-signup').value.trim();
     console.log(user_password)
     //Send the username and password to the db for validation
     //if valid take the user to their homepage

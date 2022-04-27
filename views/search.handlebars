@@ -5,25 +5,35 @@
      </header>
 
 {{#if logged_in}}
-
+<section id="mainsearch">
+<div id="searchformbox">
 {{>searchForm}}
-    <p id="mediatitle"></p>
+</div>
+<br><br>
+<section id="resultsbox">
+    <div>
+    <p><u id="mediatitle"></u></p>
     <div id="imagebox"></div>
      <p id="rating"></p>
      <button id="addbutton" style="display:none">Add to Your Watchlist</button>
-    <section id="resultsbox">
+     </div>
+     <section id="allsuboptions"> 
      <div id="suboptions">
         <h4 id="subheading"></h4>
         <h4 id="suberror"></h4>
     </div>
+    <br>
     <div id="rentoptions">
         <h4 id="rentheading"></h4>
         <h4 id="renterror"></h4>
     </div>
     <div id="buyoptions">
+        <br>
         <h4 id="buyheading"></h4>
         <h4 id="buyerror"></h4>
     </div>
+    </section>
+     </section>
     </section>
 
     {{>searchFooter}}

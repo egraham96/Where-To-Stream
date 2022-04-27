@@ -26,6 +26,7 @@ router.post('/', async(req, res) => {
 
 // Login
 router.post('/login', async (req, res) => {
+    console.log("inside /login post route")
     try {
         const userData = await User.findOne({
             where: { user_email: req.body.email }

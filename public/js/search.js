@@ -31,6 +31,7 @@ let imdbId=""
 
 //Takes query and media type submitted by user and returns Watchmode API id & IMDB id for query (if found)
 function getIDs(query, type) {
+    console.log("inside getIDS function on search.js")
 
     fetch(
             `https://watchmode.p.rapidapi.com/search/?search_field=name&search_value=${query}&types=${type}`, {
@@ -60,6 +61,7 @@ function getIDs(query, type) {
 
 //Returns all streaming data from Watchmode API for inputted movie or tv show (if found on Watchmode in getIds function)
 function getStreaming(watchmodeId, query, type) {
+    console.log("inside getStreaming function on search.js")
     fetch("https://watchmode.p.rapidapi.com/title/" + watchmodeId + "/sources/", {
             "method": "GET",
             "headers": {
@@ -88,6 +90,7 @@ function getStreaming(watchmodeId, query, type) {
 
 //Returns links to subscription streaming services where inputted movie or tv show can be watched (if found)
 function renderSubData(data, query, type) {
+    console.log("inside renderSubData function on search.js")
     var subscriptionoptions = data
         .filter(option => {
             if (option.region == "US" && option.type == "sub" && option.web_url != undefined) { return true; }
@@ -130,6 +133,7 @@ function renderSubData(data, query, type) {
 
 //Returns links to websites where inputted movie or tv show can be rented & streamed (if found)
 function renderRentData(data, query, type) {
+    console.log("inside renderRentData function on search.js")
     var rentaloptions = data
         .filter(option => {
             if (option.region == "US" && option.type == "rent" && option.web_url != undefined) { return true; }
@@ -172,6 +176,7 @@ function renderRentData(data, query, type) {
 
 //Returns links to websites where inputted movie or tv show can be purchased & streamed (if found)
 function renderBuyData(data, query, type) {
+    console.log("inside renderBuyData function on search.js")
     var buyingoptions = data
         .filter(option => {
             if (option.region == "US" && option.type == "buy" && option.web_url != undefined) { return true; }
@@ -215,6 +220,7 @@ function renderBuyData(data, query, type) {
 
 //Takes imdbId and media type from getIds function and uses TMDB API to find one picture of selected movie or tv show
 function getPicandRating(query, imdbId, type) {
+    console.log("inside getPicandRating function on search.js")
     apikey2 = "a5c09845f2af6ed970ae332ca8d551ec"
     fetch(
             `https://api.themoviedb.org/3/find/${imdbId}?api_key=${apikey2}&language=en-US&external_source=imdb_id`)
@@ -231,6 +237,7 @@ function getPicandRating(query, imdbId, type) {
 
 //If found, appends the one pic from inputted movie or tv show to page,  as well as its average rating
 function printPicandRating(query, data, type) {
+    console.log("inside printPicandRating function on search.js")
     tvshow.checked = false;
     movie.checked = false;
     var pic = document.createElement("img");
@@ -260,6 +267,7 @@ function printPicandRating(query, data, type) {
 
 //Allows users to add a title they searched for to their Watchlist
 const addtoWatchlist = async(event) => {
+    console.log("inside addtoWatchlist function on search.js")
     event.preventDefault()
     let title = mediatitle.textContent
     let type= tvorMovie
@@ -291,6 +299,7 @@ searchbutton.addEventListener('click', streamSearch)
 
 
 function streamSearch(event){
+    console.log("inside streamSearch function on search.js")
     event.preventDefault();
     errormessage.textContent = "";
     const userinput = document.getElementById('userinput').value
@@ -311,11 +320,12 @@ cbutton.addEventListener('click', clearData)
 
 
 function clearData() {
+    console.log("inside clearData function in search.js")
     document.getElementById('userinput').value = ""
     tvshow.checked = false;
     movie.checked = false;
     errormessage.innerHTML = "";
-    resultsbox.innerHTML = "";
+    //resultsbox.innerHTML = "";
     console.clear()
     location.reload();
 

@@ -3,7 +3,9 @@ body {
 }
 
 /* CSS for main.handlebars, homepage.handlebars and nav.handlebars partial*/
+
 header {
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -11,19 +13,11 @@ header {
   align-items: center;
 }
 
+
 header img {
   display: block;
 }
 
-header img:hover+.hidden {
-  display: block;
-}
-
-.hidden {
-  display: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-}
 
 .mainnav {
   height: 50px;
@@ -43,7 +37,7 @@ header img:hover+.hidden {
   text-decoration: none;
   color: #8f8f8f;
   font-family: 'Londrina Solid', cursive;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 400;
   transition: all 0.5s ease-in-out;
   position: relative;
@@ -68,9 +62,6 @@ header img:hover+.hidden {
   transition: all 0.5s ease-in-out;
 }
 
-#addbutton {
-  font-size: 24px;
-}
 
 .trendingheader {
   text-align: center;
@@ -255,7 +246,6 @@ header img:hover+.hidden {
   align-items: center;
 }
 
-/*.mediabasic{width:70%}*/
 
 .mediabasic img {
   border: solid 5px black;
@@ -265,13 +255,36 @@ header img:hover+.hidden {
   display: inline;
 }
 
-.infobutton {
+.reviewbox input {
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 10px;
+    font-size: 14px;
+    border-radius: 50px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+.addreviewsubmit,.editsubmit, .deletereview, .editreview{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   border: solid 2px black;
   outline: 0;
   background-color: white;
-  border-radius: 0.35rem;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+
+.infobutton {
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border: solid 2px black;
+  border-radius: 50px;
+  outline: 0;
+  border-radius: 50px;
   position: relative;
   cursor: pointer;
 }
@@ -285,7 +298,7 @@ header img:hover+.hidden {
   height: 100%;
   background-color: #1BB59E7A;
   z-index: -1;
-  border-radius: 0.35rem;
+  border-radius: 50px;
   border: solid 2px rgb(136, 117, 117);
   transition: all 0.3s ease-in-out;
 }
@@ -303,12 +316,12 @@ header img:hover+.hidden {
 }
 
 .deletebutton {
+  background-color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   border: solid 2px black;
   outline: 0;
-  background-color: white;
-  border-radius: 0.35rem;
+  border-radius: 50px;
   position: relative;
   cursor: pointer;
 }
@@ -322,7 +335,7 @@ header img:hover+.hidden {
   height: 100%;
   background-color: #1BB59E7A;
   z-index: -1;
-  border-radius: 0.35rem;
+  border-radius: 50px;
   border: solid 2px rgb(136, 117, 117);
   transition: all 0.3s ease-in-out;
 }
@@ -445,7 +458,135 @@ font-size:30px;}
   letter-spacing: 5px;
 }
 
+
+/* CSS for login.handlebars and signup.handlebars*/
+
+#signupheader {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:18px;
+}
+/* The Modal (background) */
+.modal{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #1BB59E7A;
+  background-color: #1BB59E7A; 
+}
+
+ /*Modal Content Box */
+.container {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:16px;
+  background-color: transparent;
+  margin: 8% auto; /* 15% from the top and centered */
+  border: 2px solid black;
+  width:70%;
+  height:70%;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.inputs h2{
+  font-family: 'Londrina Solid', cursive;
+  font-size:30px;
+}
+
+.brand-logo {
+  height: 100px;
+  width: 100px;
+  background: url("/images/tv.png");
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+
+
+.inputs {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.inputs label, .inputs input {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+
+
+label {
+  margin-bottom: 4px;
+}
+
+label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+.inputs input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+#modal-login-button, #modal-signup-button{
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  color: black;
+  margin-top: 20px;
+  background: #fec7d7;
+  font-family: 'Londrina Solid', cursive;
+  font-size:26px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+#modal-login-button {
+  box-shadow: none;
+}
+
+#modal-signup-button {
+  box-shadow: none;
+}
+
+.footermodal a {color:black;}
+
+
 /* CSS for search.handlebars*/
+
+#searchform{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:16px;
+}
 .fixedclear {
   position: fixed;
   bottom: 0;
@@ -517,27 +658,92 @@ font-size:30px;}
   letter-spacing: 5px;
 }
 
-/* CSS for login.handlebars and signup.handlebars*/
-/* The Modal (background) */
-.modal{
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
+
+#mainsearch {display:flex;
+justify-content: center;
+flex-direction: column;
+width:100%}
+
+#searchformbox{
+  margin:0 auto;
+}
+
+#resultsbox{
+  width:100%;
+  margin:0 auto;
+  display:flex;
+  justify-content: space-evenly;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:16px;
+}
+
+#resultsbox li {
+  list-style-image: url(/images/star.png)
+}
+
+#resultsbox li a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: black;
+}
+#addbutton {
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  border: solid 2px black;
+  border-radius: 50px;
+  outline: 0;
+  height:40px;
+  position: relative;
+  cursor: pointer;
+}
+
+#addbutton::after {
+  content: '';
+  position: absolute;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fec7d7;
+  z-index: -1;
+  border-radius: 50px;
+  border: solid 2px rgb(136, 117, 117);
+  transition: all 0.3s ease-in-out;
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #1BB59E7A;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+#addbutton::after {
+  width: 90%;
+  height: 90%;
 }
 
+#addbutton:hover::after {
+  width: 100%;
+  height: 100%;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+#searchbutton{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  border: solid 2px black;
+  border-radius: 50px;
+  outline: 0;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+#userinput{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border: solid 2px black;
+  border-radius: 50px;
+  outline: 0;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  height:25px;
+  width:350px;
+}

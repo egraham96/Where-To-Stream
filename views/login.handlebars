@@ -1,3 +1,4 @@
+
 <header>
         <img src="/images/logo.png">
         <p>Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. </p>
@@ -22,33 +23,40 @@
      </header>
 
 
-
 <!--Sign In Modal-->
     <div class="modal">
         <div class="modal-background"></div>
          <div class="modal-content">
+            <div class="container">
+            <div class="brand-logo"></div>
+            <div class="inputs">
             <h2>Login</h2>
             <form>
-                <div>
-                    <label>Email</label>
+                    <label>Email:</label>
+                    
                     <div>
                         <input type="text" placeholder="Email" id="modal-email">
                     </div>
                     <div>
-                        <label>Password</label>
+                        <label>Password:</label>
+
                         <div>
                             <input type="password" placeholder="Password" id="modal-password">
                         </div>
-                </div>
                 <div>
+                    <br>
+                    </div>
                     <button id="modal-login-button">Sign In!</button>
                 </div>
-                <div >
+                <br><br>
+                <div class='footermodal'>
                     Don't have an account? <a href="/signup">Sign up here!</a>
                 </div>
             </form>
+            </div>
         </div>
     </div>
+    
 
 
 <script src="/js/login.js"></script>

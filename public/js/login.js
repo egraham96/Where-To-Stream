@@ -9,11 +9,12 @@ var modal = document.querySelector('.modal');
 
 loginButton.addEventListener('click', () => {
     console.log("hi")
-    modal.style.display="block"
+    modal.style.display = "block";
+    
 });
 modalBg.addEventListener('click', () => {
     //alert('modalBg is clicked!')
-    modal.style.display="none"
+    modal.setAttribute("style", "display:none")
 });
 
 window.onclick = function(event) {
@@ -39,7 +40,7 @@ const modalSignInButtonHandler = async (event) => {
 
         if (response.ok) {
             // If successful, redirect the browser to the user's page
-            document.location.replace('/');
+            document.location.replace('/api/mylist');
         } else {
             //display error if response is not ok
             alert('Failed to log in.');
@@ -47,60 +48,6 @@ const modalSignInButtonHandler = async (event) => {
     };
 }
 
+
 modalSignInButton.addEventListener('click', modalSignInButtonHandler);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const loginFormHandler = async(event) => {
-     event.preventDefault()
-    const email = document.getElementById("email-login").value.trim();
-    const password = document.getElementById("password-login").value.trim();
-
-    if (email && password) {
-        const response = await fetch('/api/users/login', {
-            method: 'POST',
-            body: JSON.stringify({ email, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (response.ok) {
-            document.location.replace('/')
-        } else {
-            alert('Failed to log in.');
-        }
-    }
-};
-
-
-document
-    .getElementById("loginsubmit")
-    .addEventListener('click', loginFormHandler);*/
 
