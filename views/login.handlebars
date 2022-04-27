@@ -1,7 +1,11 @@
 
-<header>
+<header id="loginheader">
         <img src="/images/logo.png">
+        <div class="text">
         <p>Where to Stream is an application that allows users to input any movie or tv show and access links where the movie or show can be streamed online. </p>
+        <p>Users can also add or remove movies and shows to their very own Watchlist. </p>
+        <p>Finally, Where to Stream users can also add personal reviews of any movie or show on their Watchlist.</p>
+        </div>
         {{#if logged_in}}
 <nav class="mainnav">
     <ul class="menuItems">
@@ -11,6 +15,7 @@
         <li><a href='#' id="logout" data-item='Logout'>Logout</a></li>
     </ul>
 </nav>
+</header>
 
 {{else}}
 <nav class="mainnav">
@@ -33,7 +38,7 @@
             <h2>Login</h2>
             <form>
                     <label>Email:</label>
-                    
+
                     <div>
                         <input type="text" placeholder="Email" id="modal-email">
                     </div>

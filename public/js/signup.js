@@ -1,5 +1,7 @@
 // Sign In Modal 
 
+
+var headerText=document.querySelector('.text')
 var signupButton = document.getElementById('signup_button');
 var modalSignUpButton = document.getElementById('modal-signup-button');
 var modalBg = document.querySelector('.modal-background');
@@ -10,10 +12,12 @@ var modal = document.querySelector('.modal');
 signupButton.addEventListener('click', () => {
     console.log("hi")
     modal.style.display="block"
+    headerText.setAttribute("style", "display:none")
 });
 modalBg.addEventListener('click', () => {
     //alert('modalBg is clicked!')
     modal.style.display="none"
+    headerText.removeAttribute("style", "display:none")
 });
 
 window.onclick = function(event) {

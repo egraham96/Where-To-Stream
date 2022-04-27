@@ -465,6 +465,12 @@ font-size:30px;}
   font-family:Arial, Helvetica, sans-serif;
   font-size:18px;
 }
+
+#loginheader{font-family:Arial, Helvetica, sans-serif;
+  font-size:18px;
+}
+
+.text p{text-align:center}
 /* The Modal (background) */
 .modal{
   display: none; /* Hidden by default */
