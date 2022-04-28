@@ -512,6 +512,7 @@ font-size:30px;}
   background: url("/images/tv.png");
   margin: auto;
   border-radius: 50%;
+  border:2px solid black;
   box-sizing: border-box;
   box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
 }

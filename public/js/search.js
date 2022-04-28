@@ -308,7 +308,7 @@ function streamSearch(event){
     } else if (tvshow.checked && (!(userinput.value==""))) {
         tvorMovie = "tv";
     } else {
-        errormessage.textContent = "Please enter the name of a TV show or movie and use the checkboxes."
+        alert("Please enter the name of a TV show or movie and use the checkboxes!")
         document.getElementById('userinput').value = ""
         return;
     }
