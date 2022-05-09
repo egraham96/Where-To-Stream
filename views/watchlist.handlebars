@@ -1,5 +1,5 @@
  <header id="watchheader">
-        <img src="/images/logotext.png">
+        <img src="/images/logo2.png">
     </header>
 
 
@@ -7,6 +7,7 @@
 <section id="mainbox">
 <aside id="watchaside">
         {{#if logged_in}}
+        <br>
         <!-- Only display the user watchlist and logout buttons in the nav bar if the user is logged in -->
         <nav class="watchnav">
             <ul class="menuItems">
@@ -36,9 +37,10 @@
 <div id="mediacontainer">
     {{#each medias as |media|}}
     <div class="eachmedia">
+        <div id="box">
         <div class="mediainfobox">
         <div class="mediabasic">
-        <p id="title"><u>{{media.title}}</u></p>
+        <p id="title">{{media.title}}</p>
         <p id="type" style="display:none">{{media.type}}</p>
         <img src="{{media.image}}">
         </div>
@@ -48,9 +50,9 @@
         </div>
         </div>
      <div class="reviewbox">
-            <p class="rating"><u>Average User Rating</u>: {{media.average_rating}}</p>
+            <p class="rating"><b><u>Average User Rating</u></b>: {{media.average_rating}}</p>
             {{#if media.medialist.review}}
-            <p id="your_review"><u>Your Review</u>: {{media.medialist.review}}</p>
+            <p id="your_review"><b><u>Your Review</u></b>: {{media.medialist.review}}</p>
             <button data-id={{media.id}} class="deletereview">Delete Review</button>
             <button data-id={{media.id}} class="editreview">Edit Review</button>
             <form class="editform" data-id={{media.id}} style="display:none">
@@ -61,6 +63,7 @@
             {{else}}
             {{>reviewForm this}}
             {{/if}}
+</div>
 </div>
 </div>
 {{/each}}

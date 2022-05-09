@@ -1,13 +1,13 @@
 
      <header id="mainheader">
-        <img src="/images/logo.png">
+        <img src="/images/logo2.png">
         {{>nav}}
      </header>
 
 
 
 
-        <div class="greeting">Hello {{user.user_name}} !</div>
+        <br><br><div id="streamgreeting">Hello {{user.user_name}} !</div>
 
 
     <!--Main-->
@@ -15,13 +15,13 @@
 
     <!--Media Chosen-->
     <div id="mediachosen">
-        <p id="mediatitle"><u>{{media.title}}</u></p>
+        <p id="mediatitle">{{media.title}}</p>
          <img style="display:block;" src="{{media.image}}">
          <p class="rating"><u>Average User Rating</u>: {{media.average_rating}}</p>
     </div>
     <!--Streaming Links for Chosen Media-->
       <div id="linkscontainer">
-          <p>Streaming Links:</p>
+          <p id="linktitle">Streaming Links:</p>
           <ul id="streamlist">
 {{#each links as |link|}}
                 <li><a href="{{link.link}}">{{link.link}}</a></li><br>

@@ -36,15 +36,18 @@ function printmovieData(data){
         var listEl=document.createElement("ul");
         var paraEl=document.createElement("p")
         var para=document.createElement("p")
+        var searchLink=document.createElement("a")
+        searchLink.href="/search"
         para.textContent=value.title
-        paraEl.textContent="Average user rating: " + value.vote_average + "/10"
         var pic = document.createElement("img");
         var path= value.poster_path;
         var imagelink= "https://image.tmdb.org/t/p/w200"+ path;
         pic.src = imagelink
+        paraEl.textContent="Average user rating: " + value.vote_average + "/10"
+        searchLink.appendChild(pic)
         listEl.appendChild(div);
         div.appendChild(para)
-        div.appendChild(pic);
+        div.appendChild(searchLink)
         div.appendChild(paraEl)
         popularM.appendChild(listEl);
     })}else {popularM.textContent="No Popular Movies available"}}
@@ -61,15 +64,18 @@ function printTVData(data){
             var listEl=document.createElement("ul");
             var paraEl=document.createElement("p")
             var para=document.createElement("p")
+            var searchLink=document.createElement("a")
+            searchLink.href="/search"
             para.textContent=value.name
             paraEl.textContent="Average user rating: " + value.vote_average + "/10"
             var pic = document.createElement("img");
             var path= value.poster_path;
             var imagelink= "https://image.tmdb.org/t/p/w200"+ path;
             pic.src = imagelink
+            searchLink.appendChild(pic)
             listEl.appendChild(div);
             div.appendChild(para)
-            div.appendChild(pic);
+            div.appendChild(searchLink)
             div.appendChild(paraEl)
             popularT.appendChild(listEl);
         })}else {popularT.textContent="No Popular TV Shows available"}}

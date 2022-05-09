@@ -1,11 +1,11 @@
 body {
-  background-color: gainsboro;
+  background-color: #6b6f70
 }
 
 /* CSS for main.handlebars, homepage.handlebars and nav.handlebars partial*/
 
 header {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -21,7 +21,6 @@ header img {
 
 .mainnav {
   height: 50px;
-  background: gainsboro;
 }
 
 .mainnav .menuItems {
@@ -35,10 +34,10 @@ header img {
 
 .mainnav .menuItems li a {
   text-decoration: none;
-  color: #8f8f8f;
-  font-family: 'Londrina Solid', cursive;
+  color: black;
+  font-family: 'Oswald', cursive;
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 600;
   transition: all 0.5s ease-in-out;
   position: relative;
   text-transform: uppercase;
@@ -47,7 +46,7 @@ header img {
 .mainnav .menuItems li a::before {
   content: attr(data-item);
   transition: 0.5s;
-  color: #fec7d7;
+  color: yellow;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -65,7 +64,7 @@ header img {
 
 .trendingheader {
   text-align: center;
-  font-family: 'Londrina Solid', cursive;
+  font-family: 'Oswald', cursive;
   font-size: 30px;
 }
 
@@ -80,8 +79,8 @@ header img {
 }
 
 .posterpic p {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
+  color:white;
 }
 
 .posterpic img {
@@ -143,11 +142,11 @@ header img {
 .fixed .button-os:hover {
   position: absolute;
   top: 30px;
-  background-color: #fec7d7;
+  background-color: yellow;
 }
 
 .fixed .button-os a {
-  font-family: 'Londrina Solid', cursive;
+  font-family: 'Oswald', cursive;
   font-size: 20px;
   display: block;
   text-decoration: none;
@@ -167,6 +166,7 @@ header img {
   align-self: center;
 }
 
+
 #mainbox {
   display: flex;
 }
@@ -175,10 +175,6 @@ header img {
   width: 15%;
 }
 
-
-.watchnav {
-  background: gainsboro;
-}
 
 .watchnav .menuItems {
   list-style: none;
@@ -192,9 +188,9 @@ header img {
 
 .watchnav .menuItems li a {
   text-decoration: none;
-  color: #8f8f8f;
-  font-family: 'Londrina Solid', cursive;
-  font-size: 20px;
+  color: black;
+  font-family: 'Oswald', cursive;
+  font-size: 30px;
   font-weight: 400;
   transition: all 0.5s ease-in-out;
   position: relative;
@@ -204,7 +200,7 @@ header img {
 .watchnav .menuItems li a::before {
   content: attr(data-item);
   transition: 0.5s;
-  color: #fec7d7;
+  color: yellow;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -225,8 +221,9 @@ header img {
 }
 
 .greeting {
-  font-family: 'Londrina Solid', cursive;
-  font-size: 30px;
+  color:black;
+  font-family: 'Oswald', cursive;
+  font-size: 40px;
   text-align: center;
 }
 
@@ -237,8 +234,14 @@ header img {
 }
 
 .eachmedia {
+  display:flex;
+  justify-content: center;
+  box-sizing:border-box;
+  border:1px solid black;
   width: 50%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
+  font-size:20px;
+  color:black;
 }
 
 .mediainfobox {
@@ -247,13 +250,17 @@ header img {
 }
 
 
+#title{
+color:white;
+font-weight:400px;}
+
+.getmediainfo{display:inline;}
+
+
 .mediabasic img {
   border: solid 5px black;
 }
 
-.getmediainfo {
-  display: inline;
-}
 
 .reviewbox input {
     background: #ecf0f3;
@@ -266,8 +273,9 @@ header img {
 }
 
 .addreviewsubmit,.editsubmit, .deletereview, .editreview{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 16px;
+  font-weight:bold;
   border: solid 2px black;
   outline: 0;
   background-color: white;
@@ -279,8 +287,9 @@ header img {
 
 .infobutton {
   background-color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 16px;
+  font-weight:bold;
   border: solid 2px black;
   border-radius: 50px;
   outline: 0;
@@ -296,7 +305,7 @@ header img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1BB59E7A;
+  background-color: yellow;
   z-index: -1;
   border-radius: 50px;
   border: solid 2px rgb(136, 117, 117);
@@ -317,8 +326,9 @@ header img {
 
 .deletebutton {
   background-color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 16px;
+  font-weight:bold;
   border: solid 2px black;
   outline: 0;
   border-radius: 50px;
@@ -333,7 +343,7 @@ header img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1BB59E7A;
+  background-color: yellow;
   z-index: -1;
   border-radius: 50px;
   border: solid 2px rgb(136, 117, 117);
@@ -352,16 +362,26 @@ header img {
   left: 0.5rem;
 }
 
+#titlebox {font-weight:bold;}
+
 
 /* CSS for stream.handlebars*/
+
+#streamgreeting{color:yellow;
+  font-size:30px;
+text-align: center;
+font-family: 'Oswald', cursive;}
 
 #streamsection{
   width:100%;
   display:flex;
 }
 
+#linktitle{
+  font-size:24px;
+}
 #linkscontainer {padding-top:80px;
-font-family: Arial, Helvetica, sans-serif;
+font-family: 'Cardo', Arial, Helvetica, sans-serif;
 font-size:18px;}
 
 #streamlist {
@@ -372,20 +392,23 @@ word-wrap: break-word;}
 }
 
 #streamlist li a {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: black;
 }
 
 #mediachosen {width:30%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 20px;
   color: black;}
 
 #mediachosen img{border:3px solid black;}
 
-#mediatitle{font-family: Arial, Helvetica, sans-serif;
-font-size:30px;}
+#mediatitle{font-family: 'Cardo', Arial, Helvetica, sans-serif;
+font-size:30px;
+color:white;}
+
+#rating{font-size:18px;}
 
 .fixedstream {
   position: fixed;
@@ -442,11 +465,11 @@ font-size:30px;}
 .fixedstream .button-s:hover {
   position: absolute;
   top: 30px;
-  background-color: #fec7d7;
+  background-color: yellow;
 }
 
 .fixedstream .button-s a{
-  font-family: 'Londrina Solid', cursive;
+  font-family: 'Oswald', cursive;
   font-size: 20px;
   display: block;
   text-decoration: none;
@@ -462,15 +485,13 @@ font-size:30px;}
 /* CSS for login.handlebars and signup.handlebars*/
 
 #signupheader {
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:18px;
+  font-family:'Cardo', Arial, Helvetica, sans-serif;
 }
 
-#loginheader{font-family:Arial, Helvetica, sans-serif;
-  font-size:18px;
+#loginheader{font-family:'Cardo', Arial, Helvetica, sans-serif;
 }
 
-.text p{text-align:center}
+.text {text-align:center}
 /* The Modal (background) */
 .modal{
   display: none; /* Hidden by default */
@@ -481,13 +502,13 @@ font-size:30px;}
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: #1BB59E7A;
-  background-color: #1BB59E7A; 
+  background-color: #6b6f70;
+  background-color: #6b6f70; 
 }
 
  /*Modal Content Box */
 .container {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:'Cardo', Arial, Helvetica, sans-serif;
   font-size:16px;
   background-color: transparent;
   margin: 8% auto; /* 15% from the top and centered */
@@ -502,19 +523,25 @@ font-size:30px;}
 }
 
 .inputs h2{
-  font-family: 'Londrina Solid', cursive;
+  font-family: 'Oswald', cursive;
   font-size:30px;
 }
 
 .brand-logo {
-  height: 100px;
-  width: 100px;
-  background: url("/images/tv.png");
+  height: 200px;
+  width: 200px;
+  /*background: url("/images/logo2.ico");*/
   margin: auto;
   border-radius: 50%;
   border:2px solid black;
   box-sizing: border-box;
   box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.brand-logo img{
+  position:absolute;
+  bottom:330px;
+  left:670px;
 }
 
 
@@ -567,7 +594,7 @@ input::placeholder {
   color: black;
   margin-top: 20px;
   background: #fec7d7;
-  font-family: 'Londrina Solid', cursive;
+  font-family: 'Oswald', cursive;
   font-size:26px;
   height: 40px;
   border-radius: 20px;
@@ -591,8 +618,19 @@ input::placeholder {
 /* CSS for search.handlebars*/
 
 #searchform{
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:16px;
+  font-family:'Cardo', Arial, Helvetica, sans-serif;
+  font-size:20px;
+  font-weight:bold;
+}
+
+#searchheader h1{
+  font-size:30px;
+  color:white;
+}
+
+#searchheader h4{
+  font-size:20px;
+  font-weight:200px;
 }
 .fixedclear {
   position: fixed;
@@ -614,6 +652,7 @@ input::placeholder {
 }
 
 #clearbutton {
+  font-family:'Cardo', Arial, Helvetica, sans-serif;
   position: relative;
   top: 15px;
   left: 0;
@@ -649,11 +688,12 @@ input::placeholder {
 .fixedclear .button-c:hover {
   position: absolute;
   top: 30px;
-  background-color: #fec7d7;
+  background-color: yellow;
 }
 
 .fixedclear .button-c{
-  font-family: 'Londrina Solid', cursive;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
+  font-weight:bold;
   font-size: 20px;
   display: block;
   text-decoration: none;
@@ -680,7 +720,7 @@ width:100%}
   margin:0 auto;
   display:flex;
   justify-content: space-evenly;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:'Cardo', Arial, Helvetica, sans-serif;
   font-size:16px;
 }
 
@@ -689,13 +729,13 @@ width:100%}
 }
 
 #resultsbox li a {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: black;
 }
 #addbutton {
   background-color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 24px;
   border: solid 2px black;
   border-radius: 50px;
@@ -712,7 +752,7 @@ width:100%}
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fec7d7;
+  background-color: yellow;
   z-index: -1;
   border-radius: 50px;
   border: solid 2px rgb(136, 117, 117);
@@ -732,7 +772,7 @@ width:100%}
 }
 
 #searchbutton{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 20px;
   border: solid 2px black;
   border-radius: 50px;
@@ -743,7 +783,7 @@ width:100%}
 }
 
 #userinput{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 16px;
   border: solid 2px black;
   border-radius: 50px;

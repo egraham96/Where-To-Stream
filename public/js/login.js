@@ -2,6 +2,7 @@
 
 var loginheaderText=document.querySelector('.text')
 var loginButton = document.getElementById('loginbutton');
+var signUpButton=document.getElementById("signupbutton");
 var modalSignInButton = document.querySelector('#modal-login-button');
 var modalBg = document.querySelector('.modal-background');
 var modal = document.querySelector('.modal');
@@ -51,6 +52,10 @@ const modalSignInButtonHandler = async (event) => {
         }
     };
 }
+
+signUpButton.addEventListener('click', () => 
+{document.location.replace('/signup')})
+  
 
 
 modalSignInButton.addEventListener('click', modalSignInButtonHandler);
