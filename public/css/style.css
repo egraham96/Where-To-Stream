@@ -236,10 +236,10 @@ header img {
 .eachmedia {
   display:flex;
   justify-content: center;
+  align-items:center;
   box-sizing:border-box;
-  width: 48%;
+  width: 50%;
   border:1px solid black;
-  margin:5px;
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size:30px;
   color:black;
@@ -295,7 +295,6 @@ font-size:38px;}
   border: solid 2px black;
   border-radius: 50px;
   outline: 0;
-  border-radius: 50px;
   position: relative;
   cursor: pointer;
 }
