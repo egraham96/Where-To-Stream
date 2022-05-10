@@ -105,7 +105,7 @@ function renderSubData(data, query, type) {
                 var link = document.createElement("li");
                 hyperlink = document.createElement("a")
                 hyperlink.href = `${value.web_url}`
-                hyperlink.innerHTML = `${value.web_url}`
+                hyperlink.textContent = `${value.name}`
                 link.appendChild(hyperlink)
                 list.appendChild(link)
                 suboptions.appendChild(list);
@@ -119,7 +119,7 @@ function renderSubData(data, query, type) {
                 var link = document.createElement("li");
                 hyperlink = document.createElement("a")
                 hyperlink.href = `${value.web_url}`
-                hyperlink.innerHTML = `${value.web_url}`
+                hyperlink.textContent = `${value.name}`
                 link.appendChild(hyperlink)
                 list.appendChild(link)
                 suboptions.appendChild(list);
@@ -148,7 +148,7 @@ function renderRentData(data, query, type) {
                 var link2 = document.createElement("li");
                 hyperlink2 = document.createElement("a")
                 hyperlink2.href = `${value.web_url}`
-                hyperlink2.innerHTML = `${value.web_url}`
+                hyperlink2.textContent = `${value.name}`
                 link2.appendChild(hyperlink2)
                 list2.appendChild(link2)
                 rentoptions.appendChild(list2);
@@ -162,9 +162,9 @@ function renderRentData(data, query, type) {
                 var link2 = document.createElement("li");
                 hyperlink2 = document.createElement("a")
                 hyperlink2.href = `${value.web_url}`
-                hyperlink2.innerHTML = `${value.web_url}`
-                link2.appendChild(hyperlink2)
+                hyperlink2.textContent = `${value.name}`
                 list2.appendChild(link2)
+                link2.appendChild(hyperlink2)
                 rentoptions.appendChild(list2);
                 rentheading.textContent = `${query} can be rented and streamed here: `
             });
@@ -191,7 +191,7 @@ function renderBuyData(data, query, type) {
                 var link3 = document.createElement("li");
                 hyperlink3 = document.createElement("a")
                 hyperlink3.href = `${value.web_url}`
-                hyperlink3.innerHTML = `${value.web_url}`
+                hyperlink3.textContent = `${value.name}`
                 link3.appendChild(hyperlink3)
                 list3.appendChild(link3)
                 buyoptions.appendChild(list3);
@@ -205,7 +205,7 @@ function renderBuyData(data, query, type) {
                 var link3 = document.createElement("li");
                 hyperlink3 = document.createElement("a")
                 hyperlink3.href = `${value.web_url}`
-                hyperlink3.innerHTML = `${value.web_url}`
+                hyperlink3.textContent = `${value.name}`
                 link3.appendChild(hyperlink3)
                 list3.appendChild(link3)
                 buyoptions.appendChild(list3);
@@ -245,6 +245,7 @@ function printPicandRating(query, data, type) {
         let path = data.movie_results[0].poster_path;
         imagelink = "https://image.tmdb.org/t/p/w200" + path;
         pic.src = imagelink;
+        pic.setAttribute("class", "searchimage")
         mediatitle.textContent=query
         imagebox.appendChild(pic)
         ratingnum= data.movie_results[0].vote_average
@@ -255,6 +256,7 @@ function printPicandRating(query, data, type) {
         let path = data.tv_results[0].poster_path;
         imagelink = "https://image.tmdb.org/t/p/w200" + path;
         pic.src = imagelink;
+        pic.setAttribute("class", "searchimage");
         mediatitle.textContent=query
         imagebox.appendChild(pic)
         ratingnum=data.tv_results[0].vote_average
