@@ -237,10 +237,11 @@ header img {
   display:flex;
   justify-content: center;
   box-sizing:border-box;
+  width: 48%;
   border:1px solid black;
-  width: 50%;
+  margin:5px;
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
-  font-size:20px;
+  font-size:30px;
   color:black;
 }
 
@@ -252,7 +253,8 @@ header img {
 
 #title{
 color:white;
-font-weight:400px;}
+font-weight:400px;
+font-size:38px;}
 
 .getmediainfo{display:inline;}
 
@@ -267,14 +269,14 @@ font-weight:400px;}
     padding: 10px;
     padding-left: 20px;
     height: 10px;
-    font-size: 14px;
+    font-size: 26px;
     border-radius: 50px;
     box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
 .addreviewsubmit,.editsubmit, .deletereview, .editreview{
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 26px;
   font-weight:bold;
   border: solid 2px black;
   outline: 0;
@@ -288,7 +290,7 @@ font-weight:400px;}
 .infobutton {
   background-color: white;
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 26px;
   font-weight:bold;
   border: solid 2px black;
   border-radius: 50px;
@@ -327,7 +329,7 @@ font-weight:400px;}
 .deletebutton {
   background-color: white;
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 26px;
   font-weight:bold;
   border: solid 2px black;
   outline: 0;
