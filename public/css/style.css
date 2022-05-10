@@ -530,9 +530,11 @@ color:white;}
 }
 
 .brand-logo {
+  display:flex;
+  justify-content: center;
+  align-items: center;
   height: 200px;
   width: 200px;
-  /*background: url("/images/logo2.ico");*/
   margin: auto;
   border-radius: 50%;
   border:2px solid black;
@@ -540,11 +542,9 @@ color:white;}
   box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
 }
 
-.brand-logo img{
-  position:absolute;
-  bottom:330px;
-  left:670px;
-}
+.brand-logo img{width:150px;
+height:150px;}
+
 
 
 
