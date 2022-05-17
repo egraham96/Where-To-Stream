@@ -329,8 +329,6 @@ font-size:38px;}
   background-color: white;
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size: 26px;
-  font-weight:bold;
-  border: solid 2px black;
   outline: 0;
   border-radius: 50px;
   position: relative;
@@ -594,7 +592,7 @@ input::placeholder {
   box-sizing: border-box;
   color: black;
   margin-top: 20px;
-  background: #fec7d7;
+  background: yellow;
   font-family: 'Oswald', cursive;
   font-size:26px;
   height: 40px;
