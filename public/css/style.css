@@ -1,8 +1,13 @@
 body {
-  background-color: #6b6f70
+  background: #3a6186;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #89253e, #3a6186);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #89253e, #3a6186); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 /* CSS for main.handlebars, homepage.handlebars and nav.handlebars partial*/
+
 
 header {
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
@@ -17,6 +22,8 @@ header {
 header img {
   display: block;
 }
+
+#mainheader h1{color:white;}
 
 
 .mainnav {
@@ -80,7 +87,10 @@ header img {
 
 .posterpic p {
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
+  font-size:18px;
+  font-weight:bold;
   color:white;
+  word-wrap: break-word;
 }
 
 .posterpic img {
@@ -119,7 +129,7 @@ header img {
   box-shadow: 0 0 8px #d9d4e7;
   width: 200px;
   height: 65px;
-  background-color: #d9d4e7;
+  
   animation-duration: 5s;
 }
 
@@ -188,7 +198,7 @@ header img {
 
 .watchnav .menuItems li a {
   text-decoration: none;
-  color: black;
+  color:black;
   font-family: 'Oswald', cursive;
   font-size: 30px;
   font-weight: 400;
@@ -228,9 +238,13 @@ header img {
 }
 
 #mediacontainer {
+  border:6px solid white;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width:100%;
 }
 
 .eachmedia {
@@ -238,8 +252,11 @@ header img {
   justify-content: center;
   align-items:center;
   box-sizing:border-box;
-  width: 50%;
-  border:1px solid black;
+  margin-top:0;
+  margin-bottom:100px;
+  margin-left:20px;
+  margin-right:0px;
+  width: 42.5%;
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
   font-size:30px;
   color:black;
@@ -251,12 +268,20 @@ header img {
 }
 
 
-#title{
+/*#title{
 color:white;
 font-weight:400px;
-font-size:38px;}
+font-size:38px;
+word-wrap: break-word;
+margin:0;
+}*/
 
-.getmediainfo{display:inline;}
+.getmediainfo{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:0;
+}
 
 
 .mediabasic img {
@@ -264,8 +289,8 @@ font-size:38px;}
 }
 
 
+
 .reviewbox input {
-    background: #ecf0f3;
     padding: 10px;
     padding-left: 20px;
     height: 10px;
@@ -274,9 +299,23 @@ font-size:38px;}
     box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
+#flexbox{
+  display:flex;
+  flex-direction: row;
+}
+
+.addreviewinput{
+width:180px;
+height:35px;
+}
+
+#titlebox{word-wrap: break-word;}
+
+
+
 .addreviewsubmit,.editsubmit, .deletereview, .editreview{
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   font-weight:bold;
   border: solid 2px black;
   outline: 0;
@@ -284,19 +323,21 @@ font-size:38px;}
   border-radius: 50px;
   position: relative;
   cursor: pointer;
+  height:40px;
 }
 
 
 .infobutton {
   background-color: white;
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
-  font-size: 26px;
+  font-size: 18px;
   font-weight:bold;
   border: solid 2px black;
   border-radius: 50px;
   outline: 0;
   position: relative;
   cursor: pointer;
+  width:150px;
 }
 
 .infobutton::after {
@@ -328,11 +369,13 @@ font-size:38px;}
 .deletebutton {
   background-color: white;
   font-family: 'Cardo', Arial, Helvetica, sans-serif;
-  font-size: 26px;
+  font-size: 18px;
+  font-weight:bold;
   outline: 0;
   border-radius: 50px;
   position: relative;
   cursor: pointer;
+  width:150px;
 }
 
 .deletebutton::after {
@@ -501,8 +544,10 @@ color:white;}
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: #6b6f70;
-  background-color: #6b6f70; 
+  background: #3a6186;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #89253e, #3a6186);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #89253e, #3a6186); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
  /*Modal Content Box */
@@ -587,7 +632,7 @@ input::placeholder {
   display: block;
   width: 100%;
   padding: 0;
-  border: none;
+  border: 2px solid black;
   outline: none;
   box-sizing: border-box;
   color: black;

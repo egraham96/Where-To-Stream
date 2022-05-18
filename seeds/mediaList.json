@@ -32,12 +32,12 @@
   
     {
       "media_id": 8,
-      "user_id": 1,
+      "user_id": 2,
       "review": "Yeehaw!"
     },
     {
       "media_id": 9,
-      "user_id": 6,
+      "user_id": 1,
       "review": "I'd give it a 2/10"
     },
     {
